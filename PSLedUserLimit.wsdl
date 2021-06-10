@@ -1,0 +1,2366 @@
+<?xml version="1.0"?>
+<wsdl:definitions name="ANZ_GET_NZ_DFA_AMT.1" targetNamespace="http://xmlns.oracle.com/Enterprise/Tools/services/ANZ_GET_NZ_DFA_AMT.1" xmlns:ANZ_GET_NZ_DFA_REQ.v1="http://xmlns.oracle.com/Enterprise/Tools/schemas/ANZ_GET_NZ_DFA_REQ.v1" xmlns:ANZ_GET_SUPDFA_RES.1="http://xmlns.oracle.com/Enterprise/Tools/schemas/ANZ_GET_SUPDFA_RES.1" xmlns:plnk="http://schemas.xmlsoap.org/ws/2003/05/partner-link/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://xmlns.oracle.com/Enterprise/Tools/services/ANZ_GET_NZ_DFA_AMT.1" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsp="http://schemas.xmlsoap.org/ws/2002/12/policy">
+  <wsp:UsagePolicy wsdl:Required="true"/>
+  <plnk:partnerLinkType name="ANZ_GET_NZ_DFA_AMT_PartnerLinkType">
+    <plnk:role name="ANZ_GET_NZ_DFA_AMT_Provider">
+      <plnk:portType name="tns:ANZ_GET_NZ_DFA_AMT_PortType"/>
+    </plnk:role>
+  </plnk:partnerLinkType>
+  <wsdl:types>
+    <xsd:schema elementFormDefault="qualified" targetNamespace="http://xmlns.oracle.com/Enterprise/Tools/schemas/ANZ_GET_NZ_DFA_REQ.v1" xmlns="http://xmlns.oracle.com/Enterprise/Tools/schemas/ANZ_GET_NZ_DFA_REQ.v1" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+      <xsd:element name="ANZ_GET_NZ_DFA_REQ" type="ANZ_GET_NZ_DFA_REQ_TypeShape"/>
+      <xsd:complexType name="ANZ_GET_NZ_DFA_REQ_TypeShape">
+        <xsd:sequence>
+          <xsd:element name="FieldTypes" type="FieldTypes_TypeShape"/>
+          <xsd:element name="MsgData" type="MsgData_TypeShape"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="FieldTypes_TypeShape">
+        <xsd:all>
+          <xsd:element name="ANZ_SUPDFA_REQ" type="FieldTypesANZ_SUPDFA_REQ_TypeShape"/>
+          <xsd:element name="PSCAMA" type="FieldTypesPSCAMA_TypeShape"/>
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="FieldTypesANZ_SUPDFA_REQ_TypeShape">
+        <xsd:sequence>
+          <xsd:element name="EMPLID" type="FieldTypesCharFieldType"/>
+          <xsd:element minOccurs="0" name="ANZ_LANID" type="FieldTypesCharFieldType"/>
+          <xsd:element name="EMPL_RCD" type="FieldTypesNumberFieldType"/>
+          <xsd:element minOccurs="0" name="HR_STATUS" type="FieldTypesCharFieldType"/>
+          <xsd:element name="POSITION_NBR" type="FieldTypesCharFieldType"/>
+          <xsd:element name="REPORTS_TO" type="FieldTypesCharFieldType"/>
+          <xsd:element minOccurs="0" name="CURRENCY_CD" type="FieldTypesCharFieldType"/>
+          <xsd:element minOccurs="0" name="ANZ_DFA_AMOUNT" type="FieldTypesNumberFieldType"/>
+          <xsd:element minOccurs="0" name="ANZ_DFA_NLL_AMOUNT" type="FieldTypesNumberFieldType"/>
+          <xsd:element minOccurs="0" name="ANZ_MNR_DFA_FLAG" type="FieldTypesCharFieldType"/>
+          <xsd:element minOccurs="0" name="FLAG1" type="FieldTypesCharFieldType"/>
+          <xsd:element minOccurs="0" name="FLAG2" type="FieldTypesCharFieldType"/>
+          <xsd:element minOccurs="0" name="FLAG3" type="FieldTypesCharFieldType"/>
+          <xsd:element minOccurs="0" name="FLAG4" type="FieldTypesCharFieldType"/>
+          <xsd:element minOccurs="0" name="FLAG5" type="FieldTypesCharFieldType"/>
+          <xsd:element minOccurs="0" name="DESCR100A" type="FieldTypesCharFieldType"/>
+          <xsd:element minOccurs="0" name="DESCR100B" type="FieldTypesCharFieldType"/>
+          <xsd:element minOccurs="0" name="DESCR100C" type="FieldTypesCharFieldType"/>
+          <xsd:element minOccurs="0" name="DESCR100D" type="FieldTypesCharFieldType"/>
+          <xsd:element minOccurs="0" name="DESCR100E" type="FieldTypesCharFieldType"/>
+          <xsd:element minOccurs="0" name="DESCR100F" type="FieldTypesCharFieldType"/>
+          <xsd:element minOccurs="0" name="DESCR100G" type="FieldTypesCharFieldType"/>
+          <xsd:element minOccurs="0" name="DESCR100H" type="FieldTypesCharFieldType"/>
+          <xsd:element minOccurs="0" name="DESCR100I" type="FieldTypesCharFieldType"/>
+          <xsd:element minOccurs="0" name="DESCR100J" type="FieldTypesCharFieldType"/>
+          <xsd:element minOccurs="0" name="USER_DATE1" type="FieldTypesDateFieldType"/>
+          <xsd:element minOccurs="0" name="USER_DATE2" type="FieldTypesDateFieldType"/>
+          <xsd:element minOccurs="0" name="USER_DATE3" type="FieldTypesDateFieldType"/>
+          <xsd:element minOccurs="0" name="DATE1" type="FieldTypesDateFieldType"/>
+          <xsd:element minOccurs="0" name="DATE2" type="FieldTypesDateFieldType"/>
+          <xsd:element minOccurs="0" name="DATE3" type="FieldTypesDateFieldType"/>
+          <xsd:element minOccurs="0" name="NUMBER1" type="FieldTypesNumberFieldType"/>
+          <xsd:element minOccurs="0" name="NUMBER2" type="FieldTypesNumberFieldType"/>
+          <xsd:element minOccurs="0" name="NUMBER3" type="FieldTypesNumberFieldType"/>
+          <xsd:element minOccurs="0" name="NUMBER4" type="FieldTypesNumberFieldType"/>
+          <xsd:element minOccurs="0" name="DP_RECORDNUMBER1" type="FieldTypesNumberFieldType"/>
+        </xsd:sequence>
+        <xsd:attribute fixed="R" name="class" type="xsd:string" use="required"/>
+      </xsd:complexType>
+      <xsd:complexType name="FieldTypesPSCAMA_TypeShape">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="LANGUAGE_CD" type="FieldTypesCharFieldType"/>
+          <xsd:element minOccurs="0" name="AUDIT_ACTN" type="FieldTypesCharFieldType"/>
+          <xsd:element minOccurs="0" name="BASE_LANGUAGE_CD" type="FieldTypesCharFieldType"/>
+          <xsd:element minOccurs="0" name="MSG_SEQ_FLG" type="FieldTypesCharFieldType"/>
+          <xsd:element minOccurs="0" name="PROCESS_INSTANCE" type="FieldTypesNumberFieldType"/>
+          <xsd:element minOccurs="0" name="PUBLISH_RULE_ID" type="FieldTypesCharFieldType"/>
+          <xsd:element minOccurs="0" name="MSGNODENAME" type="FieldTypesCharFieldType"/>
+        </xsd:sequence>
+        <xsd:attribute fixed="R" name="class" type="xsd:string" use="required"/>
+      </xsd:complexType>
+      <xsd:complexType name="FieldTypesCharFieldType">
+        <xsd:attribute fixed="CHAR" name="type" type="xsd:string" use="required"/>
+      </xsd:complexType>
+      <xsd:complexType name="FieldTypesNumberFieldType">
+        <xsd:attribute fixed="NUMBER" name="type" type="xsd:string" use="required"/>
+      </xsd:complexType>
+      <xsd:complexType name="FieldTypesDateFieldType">
+        <xsd:attribute fixed="DATE" name="type" type="xsd:string" use="required"/>
+      </xsd:complexType>
+      <xsd:complexType name="FieldTypesTimeFieldType">
+        <xsd:attribute fixed="TIME" name="type" type="xsd:string" use="required"/>
+      </xsd:complexType>
+      <xsd:complexType name="FieldTypesDateTimeFieldType">
+        <xsd:attribute fixed="DATETIME" name="type" type="xsd:string" use="required"/>
+      </xsd:complexType>
+      <xsd:complexType name="FieldTypesImageRefFieldType">
+        <xsd:attribute fixed="IMAGEREFERENCE" name="type" type="xsd:string" use="required"/>
+      </xsd:complexType>
+      <xsd:complexType name="MsgData_TypeShape">
+        <xsd:sequence>
+          <xsd:element maxOccurs="unbounded" minOccurs="0" name="Transaction" type="Transaction_TypeShape"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="Transaction_TypeShape">
+        <xsd:all>
+          <xsd:element minOccurs="0" name="ANZ_SUPDFA_REQ" type="ANZ_SUPDFA_REQMsgDataRecord_TypeShape"/>
+          <xsd:element name="PSCAMA" type="PSCAMAMsgDataRecord_TypeShape"/>
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="ANZ_SUPDFA_REQMsgDataRecord_TypeShape">
+        <xsd:sequence>
+          <xsd:element name="EMPLID" type="EMPLID_TypeShape"/>
+          <xsd:element minOccurs="0" name="ANZ_LANID" type="ANZ_LANID_TypeShape"/>
+          <xsd:element name="EMPL_RCD" type="EMPL_RCD_TypeShape"/>
+          <xsd:element minOccurs="0" name="HR_STATUS" type="HR_STATUS_TypeShape"/>
+          <xsd:element name="POSITION_NBR" type="POSITION_NBR_TypeShape"/>
+          <xsd:element name="REPORTS_TO" type="REPORTS_TO_TypeShape"/>
+          <xsd:element minOccurs="0" name="CURRENCY_CD" type="CURRENCY_CD_TypeShape"/>
+          <xsd:element minOccurs="0" name="ANZ_DFA_AMOUNT" type="ANZ_DFA_AMOUNT_TypeShape"/>
+          <xsd:element minOccurs="0" name="ANZ_DFA_NLL_AMOUNT" type="ANZ_DFA_NLL_AMOUNT_TypeShape"/>
+          <xsd:element minOccurs="0" name="ANZ_MNR_DFA_FLAG" type="ANZ_MNR_DFA_FLAG_TypeShape"/>
+          <xsd:element minOccurs="0" name="FLAG1" type="FLAG1_TypeShape"/>
+          <xsd:element minOccurs="0" name="FLAG2" type="FLAG2_TypeShape"/>
+          <xsd:element minOccurs="0" name="FLAG3" type="FLAG3_TypeShape"/>
+          <xsd:element minOccurs="0" name="FLAG4" type="FLAG4_TypeShape"/>
+          <xsd:element minOccurs="0" name="FLAG5" type="FLAG5_TypeShape"/>
+          <xsd:element minOccurs="0" name="DESCR100A" type="DESCR100A_TypeShape"/>
+          <xsd:element minOccurs="0" name="DESCR100B" type="DESCR100B_TypeShape"/>
+          <xsd:element minOccurs="0" name="DESCR100C" type="DESCR100C_TypeShape"/>
+          <xsd:element minOccurs="0" name="DESCR100D" type="DESCR100D_TypeShape"/>
+          <xsd:element minOccurs="0" name="DESCR100E" type="DESCR100E_TypeShape"/>
+          <xsd:element minOccurs="0" name="DESCR100F" type="DESCR100F_TypeShape"/>
+          <xsd:element minOccurs="0" name="DESCR100G" type="DESCR100G_TypeShape"/>
+          <xsd:element minOccurs="0" name="DESCR100H" type="DESCR100H_TypeShape"/>
+          <xsd:element minOccurs="0" name="DESCR100I" type="DESCR100I_TypeShape"/>
+          <xsd:element minOccurs="0" name="DESCR100J" type="DESCR100J_TypeShape"/>
+          <xsd:element minOccurs="0" name="USER_DATE1" type="USER_DATE1_TypeShape"/>
+          <xsd:element minOccurs="0" name="USER_DATE2" type="USER_DATE2_TypeShape"/>
+          <xsd:element minOccurs="0" name="USER_DATE3" type="USER_DATE3_TypeShape"/>
+          <xsd:element minOccurs="0" name="DATE1" type="DATE1_TypeShape"/>
+          <xsd:element minOccurs="0" name="DATE2" type="DATE2_TypeShape"/>
+          <xsd:element minOccurs="0" name="DATE3" type="DATE3_TypeShape"/>
+          <xsd:element minOccurs="0" name="NUMBER1" type="NUMBER1_TypeShape"/>
+          <xsd:element minOccurs="0" name="NUMBER2" type="NUMBER2_TypeShape"/>
+          <xsd:element minOccurs="0" name="NUMBER3" type="NUMBER3_TypeShape"/>
+          <xsd:element minOccurs="0" name="NUMBER4" type="NUMBER4_TypeShape"/>
+          <xsd:element minOccurs="0" name="DP_RECORDNUMBER1" type="DP_RECORDNUMBER1_TypeShape"/>
+        </xsd:sequence>
+        <xsd:attribute fixed="R" name="class" type="xsd:string" use="required"/>
+      </xsd:complexType>
+      <xsd:complexType name="EMPLID_TypeShape">
+        <xsd:simpleContent>
+          <xsd:extension base="EMPLID_TypeDef">
+            <xsd:attribute name="IsChanged" type="xsd:string" use="optional"/>
+          </xsd:extension>
+        </xsd:simpleContent>
+      </xsd:complexType>
+      <xsd:complexType name="ANZ_LANID_TypeShape">
+        <xsd:simpleContent>
+          <xsd:extension base="ANZ_LANID_TypeDef">
+            <xsd:attribute name="IsChanged" type="xsd:string" use="optional"/>
+          </xsd:extension>
+        </xsd:simpleContent>
+      </xsd:complexType>
+      <xsd:complexType name="EMPL_RCD_TypeShape">
+        <xsd:simpleContent>
+          <xsd:extension base="EMPL_RCD_TypeDef">
+            <xsd:attribute name="IsChanged" type="xsd:string" use="optional"/>
+          </xsd:extension>
+        </xsd:simpleContent>
+      </xsd:complexType>
+      <xsd:complexType name="HR_STATUS_TypeShape">
+        <xsd:simpleContent>
+          <xsd:extension base="HR_STATUS_TypeDef">
+            <xsd:attribute name="IsChanged" type="xsd:string" use="optional"/>
+          </xsd:extension>
+        </xsd:simpleContent>
+      </xsd:complexType>
+      <xsd:complexType name="POSITION_NBR_TypeShape">
+        <xsd:simpleContent>
+          <xsd:extension base="POSITION_NBR_TypeDef">
+            <xsd:attribute name="IsChanged" type="xsd:string" use="optional"/>
+          </xsd:extension>
+        </xsd:simpleContent>
+      </xsd:complexType>
+      <xsd:complexType name="REPORTS_TO_TypeShape">
+        <xsd:simpleContent>
+          <xsd:extension base="REPORTS_TO_TypeDef">
+            <xsd:attribute name="IsChanged" type="xsd:string" use="optional"/>
+          </xsd:extension>
+        </xsd:simpleContent>
+      </xsd:complexType>
+      <xsd:complexType name="CURRENCY_CD_TypeShape">
+        <xsd:simpleContent>
+          <xsd:extension base="CURRENCY_CD_TypeDef">
+            <xsd:attribute name="IsChanged" type="xsd:string" use="optional"/>
+          </xsd:extension>
+        </xsd:simpleContent>
+      </xsd:complexType>
+      <xsd:complexType name="ANZ_DFA_AMOUNT_TypeShape">
+        <xsd:simpleContent>
+          <xsd:extension base="ANZ_DFA_AMOUNT_TypeDef">
+            <xsd:attribute name="IsChanged" type="xsd:string" use="optional"/>
+          </xsd:extension>
+        </xsd:simpleContent>
+      </xsd:complexType>
+      <xsd:complexType name="ANZ_DFA_NLL_AMOUNT_TypeShape">
+        <xsd:simpleContent>
+          <xsd:extension base="ANZ_DFA_NLL_AMOUNT_TypeDef">
+            <xsd:attribute name="IsChanged" type="xsd:string" use="optional"/>
+          </xsd:extension>
+        </xsd:simpleContent>
+      </xsd:complexType>
+      <xsd:complexType name="ANZ_MNR_DFA_FLAG_TypeShape">
+        <xsd:simpleContent>
+          <xsd:extension base="ANZ_MNR_DFA_FLAG_TypeDef">
+            <xsd:attribute name="IsChanged" type="xsd:string" use="optional"/>
+          </xsd:extension>
+        </xsd:simpleContent>
+      </xsd:complexType>
+      <xsd:complexType name="FLAG1_TypeShape">
+        <xsd:simpleContent>
+          <xsd:extension base="FLAG1_TypeDef">
+            <xsd:attribute name="IsChanged" type="xsd:string" use="optional"/>
+          </xsd:extension>
+        </xsd:simpleContent>
+      </xsd:complexType>
+      <xsd:complexType name="FLAG2_TypeShape">
+        <xsd:simpleContent>
+          <xsd:extension base="FLAG2_TypeDef">
+            <xsd:attribute name="IsChanged" type="xsd:string" use="optional"/>
+          </xsd:extension>
+        </xsd:simpleContent>
+      </xsd:complexType>
+      <xsd:complexType name="FLAG3_TypeShape">
+        <xsd:simpleContent>
+          <xsd:extension base="FLAG3_TypeDef">
+            <xsd:attribute name="IsChanged" type="xsd:string" use="optional"/>
+          </xsd:extension>
+        </xsd:simpleContent>
+      </xsd:complexType>
+      <xsd:complexType name="FLAG4_TypeShape">
+        <xsd:simpleContent>
+          <xsd:extension base="FLAG4_TypeDef">
+            <xsd:attribute name="IsChanged" type="xsd:string" use="optional"/>
+          </xsd:extension>
+        </xsd:simpleContent>
+      </xsd:complexType>
+      <xsd:complexType name="FLAG5_TypeShape">
+        <xsd:simpleContent>
+          <xsd:extension base="FLAG5_TypeDef">
+            <xsd:attribute name="IsChanged" type="xsd:string" use="optional"/>
+          </xsd:extension>
+        </xsd:simpleContent>
+      </xsd:complexType>
+      <xsd:complexType name="DESCR100A_TypeShape">
+        <xsd:simpleContent>
+          <xsd:extension base="DESCR100A_TypeDef">
+            <xsd:attribute name="IsChanged" type="xsd:string" use="optional"/>
+          </xsd:extension>
+        </xsd:simpleContent>
+      </xsd:complexType>
+      <xsd:complexType name="DESCR100B_TypeShape">
+        <xsd:simpleContent>
+          <xsd:extension base="DESCR100B_TypeDef">
+            <xsd:attribute name="IsChanged" type="xsd:string" use="optional"/>
+          </xsd:extension>
+        </xsd:simpleContent>
+      </xsd:complexType>
+      <xsd:complexType name="DESCR100C_TypeShape">
+        <xsd:simpleContent>
+          <xsd:extension base="DESCR100C_TypeDef">
+            <xsd:attribute name="IsChanged" type="xsd:string" use="optional"/>
+          </xsd:extension>
+        </xsd:simpleContent>
+      </xsd:complexType>
+      <xsd:complexType name="DESCR100D_TypeShape">
+        <xsd:simpleContent>
+          <xsd:extension base="DESCR100D_TypeDef">
+            <xsd:attribute name="IsChanged" type="xsd:string" use="optional"/>
+          </xsd:extension>
+        </xsd:simpleContent>
+      </xsd:complexType>
+      <xsd:complexType name="DESCR100E_TypeShape">
+        <xsd:simpleContent>
+          <xsd:extension base="DESCR100E_TypeDef">
+            <xsd:attribute name="IsChanged" type="xsd:string" use="optional"/>
+          </xsd:extension>
+        </xsd:simpleContent>
+      </xsd:complexType>
+      <xsd:complexType name="DESCR100F_TypeShape">
+        <xsd:simpleContent>
+          <xsd:extension base="DESCR100F_TypeDef">
+            <xsd:attribute name="IsChanged" type="xsd:string" use="optional"/>
+          </xsd:extension>
+        </xsd:simpleContent>
+      </xsd:complexType>
+      <xsd:complexType name="DESCR100G_TypeShape">
+        <xsd:simpleContent>
+          <xsd:extension base="DESCR100G_TypeDef">
+            <xsd:attribute name="IsChanged" type="xsd:string" use="optional"/>
+          </xsd:extension>
+        </xsd:simpleContent>
+      </xsd:complexType>
+      <xsd:complexType name="DESCR100H_TypeShape">
+        <xsd:simpleContent>
+          <xsd:extension base="DESCR100H_TypeDef">
+            <xsd:attribute name="IsChanged" type="xsd:string" use="optional"/>
+          </xsd:extension>
+        </xsd:simpleContent>
+      </xsd:complexType>
+      <xsd:complexType name="DESCR100I_TypeShape">
+        <xsd:simpleContent>
+          <xsd:extension base="DESCR100I_TypeDef">
+            <xsd:attribute name="IsChanged" type="xsd:string" use="optional"/>
+          </xsd:extension>
+        </xsd:simpleContent>
+      </xsd:complexType>
+      <xsd:complexType name="DESCR100J_TypeShape">
+        <xsd:simpleContent>
+          <xsd:extension base="DESCR100J_TypeDef">
+            <xsd:attribute name="IsChanged" type="xsd:string" use="optional"/>
+          </xsd:extension>
+        </xsd:simpleContent>
+      </xsd:complexType>
+      <xsd:complexType name="USER_DATE1_TypeShape">
+        <xsd:simpleContent>
+          <xsd:extension base="USER_DATE1_TypeDef">
+            <xsd:attribute name="IsChanged" type="xsd:string" use="optional"/>
+          </xsd:extension>
+        </xsd:simpleContent>
+      </xsd:complexType>
+      <xsd:complexType name="USER_DATE2_TypeShape">
+        <xsd:simpleContent>
+          <xsd:extension base="USER_DATE2_TypeDef">
+            <xsd:attribute name="IsChanged" type="xsd:string" use="optional"/>
+          </xsd:extension>
+        </xsd:simpleContent>
+      </xsd:complexType>
+      <xsd:complexType name="USER_DATE3_TypeShape">
+        <xsd:simpleContent>
+          <xsd:extension base="USER_DATE3_TypeDef">
+            <xsd:attribute name="IsChanged" type="xsd:string" use="optional"/>
+          </xsd:extension>
+        </xsd:simpleContent>
+      </xsd:complexType>
+      <xsd:complexType name="DATE1_TypeShape">
+        <xsd:simpleContent>
+          <xsd:extension base="DATE1_TypeDef">
+            <xsd:attribute name="IsChanged" type="xsd:string" use="optional"/>
+          </xsd:extension>
+        </xsd:simpleContent>
+      </xsd:complexType>
+      <xsd:complexType name="DATE2_TypeShape">
+        <xsd:simpleContent>
+          <xsd:extension base="DATE2_TypeDef">
+            <xsd:attribute name="IsChanged" type="xsd:string" use="optional"/>
+          </xsd:extension>
+        </xsd:simpleContent>
+      </xsd:complexType>
+      <xsd:complexType name="DATE3_TypeShape">
+        <xsd:simpleContent>
+          <xsd:extension base="DATE3_TypeDef">
+            <xsd:attribute name="IsChanged" type="xsd:string" use="optional"/>
+          </xsd:extension>
+        </xsd:simpleContent>
+      </xsd:complexType>
+      <xsd:complexType name="NUMBER1_TypeShape">
+        <xsd:simpleContent>
+          <xsd:extension base="NUMBER1_TypeDef">
+            <xsd:attribute name="IsChanged" type="xsd:string" use="optional"/>
+          </xsd:extension>
+        </xsd:simpleContent>
+      </xsd:complexType>
+      <xsd:complexType name="NUMBER2_TypeShape">
+        <xsd:simpleContent>
+          <xsd:extension base="NUMBER2_TypeDef">
+            <xsd:attribute name="IsChanged" type="xsd:string" use="optional"/>
+          </xsd:extension>
+        </xsd:simpleContent>
+      </xsd:complexType>
+      <xsd:complexType name="NUMBER3_TypeShape">
+        <xsd:simpleContent>
+          <xsd:extension base="NUMBER3_TypeDef">
+            <xsd:attribute name="IsChanged" type="xsd:string" use="optional"/>
+          </xsd:extension>
+        </xsd:simpleContent>
+      </xsd:complexType>
+      <xsd:complexType name="NUMBER4_TypeShape">
+        <xsd:simpleContent>
+          <xsd:extension base="NUMBER4_TypeDef">
+            <xsd:attribute name="IsChanged" type="xsd:string" use="optional"/>
+          </xsd:extension>
+        </xsd:simpleContent>
+      </xsd:complexType>
+      <xsd:complexType name="DP_RECORDNUMBER1_TypeShape">
+        <xsd:simpleContent>
+          <xsd:extension base="DP_RECORDNUMBER1_TypeDef">
+            <xsd:attribute name="IsChanged" type="xsd:string" use="optional"/>
+          </xsd:extension>
+        </xsd:simpleContent>
+      </xsd:complexType>
+      <xsd:simpleType name="EMPLID_TypeDef">
+        <xsd:annotation>
+          <xsd:documentation>Employee ID</xsd:documentation>
+          <xsd:documentation>EMPLID is a character of length 11. Allows Uppercase characters including numbers</xsd:documentation>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:string">
+          <xsd:maxLength value="11"/>
+          <xsd:whiteSpace value="preserve"/>
+          <xsd:pattern value="([A-Z]|[0-9]|\p{Z}|\p{P}|\p{Lu})*"/>
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="ANZ_LANID_TypeDef">
+        <xsd:annotation>
+          <xsd:documentation>MArk Plummer/ANZWR100113/24-4-2014
+Increased size to 20 to allow longer lanids to be used including admin accounts 
+
+Prashanth Haligya
+ANZWR27100
+29/08/2011
+Added a field label
+
+Santhana, 3/10/2002
+ANZTSR9601_SEC
+- Employee LAN id field
+
+C.Sridhar, 01/08/2006
+ANZWR03364
+INFMS89 Implementaion for SSO</xsd:documentation>
+          <xsd:documentation>ANZ_LANID is a character of length 20</xsd:documentation>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:string">
+          <xsd:maxLength value="20"/>
+          <xsd:whiteSpace value="preserve"/>
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="EMPL_RCD_TypeDef">
+        <xsd:annotation>
+          <xsd:documentation>Empl Rcd Nbr                  </xsd:documentation>
+          <xsd:documentation>EMPL_RCD is a number of length 3 with a decimal position of 0</xsd:documentation>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:integer">
+          <xsd:totalDigits value="3"/>
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="HR_STATUS_TypeDef">
+        <xsd:annotation>
+          <xsd:documentation>ANZWR100055
+Modified by: Paramita chakraborty
+06-01-2014
+Created new fields for storing HR_STATUS coming from HR through IB</xsd:documentation>
+          <xsd:documentation>HR_STATUS is a character of length 1. Allows Uppercase characters including numbers</xsd:documentation>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:string">
+          <xsd:maxLength value="1"/>
+          <xsd:whiteSpace value="preserve"/>
+          <xsd:pattern value="([A-Z]|[0-9]|\p{Z}|\p{P}|\p{Lu})*"/>
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="POSITION_NBR_TypeDef">
+        <xsd:annotation>
+          <xsd:documentation>Position Number               </xsd:documentation>
+          <xsd:documentation>POSITION_NBR is a character of length 8. Allows Uppercase characters including numbers</xsd:documentation>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:string">
+          <xsd:maxLength value="8"/>
+          <xsd:whiteSpace value="preserve"/>
+          <xsd:pattern value="([A-Z]|[0-9]|\p{Z}|\p{P}|\p{Lu})*"/>
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="REPORTS_TO_TypeDef">
+        <xsd:annotation>
+          <xsd:documentation>Reports To Position Number    </xsd:documentation>
+          <xsd:documentation>REPORTS_TO is a character of length 8. Allows Uppercase characters including numbers</xsd:documentation>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:string">
+          <xsd:maxLength value="8"/>
+          <xsd:whiteSpace value="preserve"/>
+          <xsd:pattern value="([A-Z]|[0-9]|\p{Z}|\p{P}|\p{Lu})*"/>
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="CURRENCY_CD_TypeDef">
+        <xsd:annotation>
+          <xsd:documentation>CURRENCY_CD is a character of length 3. Allows Uppercase characters including numbers</xsd:documentation>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:string">
+          <xsd:maxLength value="3"/>
+          <xsd:whiteSpace value="preserve"/>
+          <xsd:pattern value="([A-Z]|[0-9]|\p{Z}|\p{P}|\p{Lu})*"/>
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="ANZ_DFA_AMOUNT_TypeDef">
+        <xsd:annotation>
+          <xsd:documentation>ANZ_DFA_AMOUNT is a number of length 10 with a decimal position of 0</xsd:documentation>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:integer">
+          <xsd:totalDigits value="10"/>
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="ANZ_DFA_NLL_AMOUNT_TypeDef">
+        <xsd:annotation>
+          <xsd:documentation>ANZ_DFA_NLL_AMOUNT is a number of length 10 with a decimal position of 0</xsd:documentation>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:integer">
+          <xsd:totalDigits value="10"/>
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="ANZ_MNR_DFA_FLAG_TypeDef">
+        <xsd:annotation>
+          <xsd:documentation>ANZ_MNR_DFA_FLAG is a character of length 1. Allows Uppercase characters including numbers</xsd:documentation>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:string">
+          <xsd:maxLength value="1"/>
+          <xsd:whiteSpace value="preserve"/>
+          <xsd:pattern value="([A-Z]|[0-9]|\p{Z}|\p{P}|\p{Lu})*"/>
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="FLAG1_TypeDef">
+        <xsd:annotation>
+          <xsd:documentation>J.Chavarria, 22/01/2002
+ANZCR1538_R4
+- include new label ID (ANZ_PS_CONFIG_DATA) for the Reporting dataStore setup.</xsd:documentation>
+          <xsd:documentation>FLAG1 is a character of length 1. Allows Uppercase characters including numbers</xsd:documentation>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:string">
+          <xsd:maxLength value="1"/>
+          <xsd:whiteSpace value="preserve"/>
+          <xsd:pattern value="([A-Z]|[0-9]|\p{Z}|\p{P}|\p{Lu})*"/>
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="FLAG2_TypeDef">
+        <xsd:annotation>
+          <xsd:documentation>J.Chavarria, 22/01/2002
+ANZCR1538_R4
+- include new label ID (ANZ_PS_INQUIRY) for the Reporting dataStore setup.</xsd:documentation>
+          <xsd:documentation>FLAG2 is a character of length 1. Allows Uppercase characters including numbers</xsd:documentation>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:string">
+          <xsd:maxLength value="1"/>
+          <xsd:whiteSpace value="preserve"/>
+          <xsd:pattern value="([A-Z]|[0-9]|\p{Z}|\p{P}|\p{Lu})*"/>
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="FLAG3_TypeDef">
+        <xsd:annotation>
+          <xsd:documentation>J.Chavarria, 22/01/2002
+ANZCR1538_R4
+- include new label ID (ANZ_GENERATE_VIEW) for the Reporting dataStore setup.</xsd:documentation>
+          <xsd:documentation>FLAG3 is a character of length 1. Allows Uppercase characters including numbers</xsd:documentation>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:string">
+          <xsd:maxLength value="1"/>
+          <xsd:whiteSpace value="preserve"/>
+          <xsd:pattern value="([A-Z]|[0-9]|\p{Z}|\p{P}|\p{Lu})*"/>
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="FLAG4_TypeDef">
+        <xsd:annotation>
+          <xsd:documentation>J.Chavarria, 22/01/2002
+ANZCR1538_R4
+- include new label ID (ANZ_WITH_HISTORY) for the Reporting dataStore setup.</xsd:documentation>
+          <xsd:documentation>FLAG4 is a character of length 1. Allows Uppercase characters including numbers</xsd:documentation>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:string">
+          <xsd:maxLength value="1"/>
+          <xsd:whiteSpace value="preserve"/>
+          <xsd:pattern value="([A-Z]|[0-9]|\p{Z}|\p{P}|\p{Lu})*"/>
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="FLAG5_TypeDef">
+        <xsd:annotation>
+          <xsd:documentation>FLAG5 is a character of length 1. Allows Uppercase characters including numbers</xsd:documentation>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:string">
+          <xsd:maxLength value="1"/>
+          <xsd:whiteSpace value="preserve"/>
+          <xsd:pattern value="([A-Z]|[0-9]|\p{Z}|\p{P}|\p{Lu})*"/>
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="DESCR100A_TypeDef">
+        <xsd:annotation>
+          <xsd:documentation>DESCR100A is a character of length 100</xsd:documentation>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:string">
+          <xsd:maxLength value="100"/>
+          <xsd:whiteSpace value="preserve"/>
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="DESCR100B_TypeDef">
+        <xsd:annotation>
+          <xsd:documentation>DESCR100B is a character of length 100</xsd:documentation>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:string">
+          <xsd:maxLength value="100"/>
+          <xsd:whiteSpace value="preserve"/>
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="DESCR100C_TypeDef">
+        <xsd:annotation>
+          <xsd:documentation>DESCR100C is a character of length 100</xsd:documentation>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:string">
+          <xsd:maxLength value="100"/>
+          <xsd:whiteSpace value="preserve"/>
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="DESCR100D_TypeDef">
+        <xsd:annotation>
+          <xsd:documentation>DESCR100D is a character of length 100</xsd:documentation>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:string">
+          <xsd:maxLength value="100"/>
+          <xsd:whiteSpace value="preserve"/>
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="DESCR100E_TypeDef">
+        <xsd:annotation>
+          <xsd:documentation>DESCR100E is a character of length 100</xsd:documentation>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:string">
+          <xsd:maxLength value="100"/>
+          <xsd:whiteSpace value="preserve"/>
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="DESCR100F_TypeDef">
+        <xsd:annotation>
+          <xsd:documentation>DESCR100F is a character of length 100</xsd:documentation>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:string">
+          <xsd:maxLength value="100"/>
+          <xsd:whiteSpace value="preserve"/>
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="DESCR100G_TypeDef">
+        <xsd:annotation>
+          <xsd:documentation>DESCR100G is a character of length 100</xsd:documentation>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:string">
+          <xsd:maxLength value="100"/>
+          <xsd:whiteSpace value="preserve"/>
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="DESCR100H_TypeDef">
+        <xsd:annotation>
+          <xsd:documentation>DESCR100H is a character of length 100</xsd:documentation>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:string">
+          <xsd:maxLength value="100"/>
+          <xsd:whiteSpace value="preserve"/>
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="DESCR100I_TypeDef">
+        <xsd:annotation>
+          <xsd:documentation>DESCR100I is a character of length 100</xsd:documentation>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:string">
+          <xsd:maxLength value="100"/>
+          <xsd:whiteSpace value="preserve"/>
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="DESCR100J_TypeDef">
+        <xsd:annotation>
+          <xsd:documentation>DESCR100J is a character of length 100</xsd:documentation>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:string">
+          <xsd:maxLength value="100"/>
+          <xsd:whiteSpace value="preserve"/>
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="USER_DATE1_TypeDef">
+        <xsd:annotation>
+          <xsd:documentation>USER_DATE1 is a date.</xsd:documentation>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:date">
+          <xsd:pattern value="(\d{4}-\d{2}-\d{2})"/>
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="USER_DATE2_TypeDef">
+        <xsd:annotation>
+          <xsd:documentation>USER_DATE2 is a date.</xsd:documentation>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:date">
+          <xsd:pattern value="(\d{4}-\d{2}-\d{2})"/>
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="USER_DATE3_TypeDef">
+        <xsd:annotation>
+          <xsd:documentation>USER_DATE3 is a date.</xsd:documentation>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:date">
+          <xsd:pattern value="(\d{4}-\d{2}-\d{2})"/>
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="DATE1_TypeDef">
+        <xsd:annotation>
+          <xsd:documentation>DATE1 is a date.</xsd:documentation>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:date">
+          <xsd:pattern value="(\d{4}-\d{2}-\d{2})"/>
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="DATE2_TypeDef">
+        <xsd:annotation>
+          <xsd:documentation>DATE2 is a date.</xsd:documentation>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:date">
+          <xsd:pattern value="(\d{4}-\d{2}-\d{2})"/>
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="DATE3_TypeDef">
+        <xsd:annotation>
+          <xsd:documentation>DATE3 is a date.</xsd:documentation>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:date">
+          <xsd:pattern value="(\d{4}-\d{2}-\d{2})"/>
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="NUMBER1_TypeDef">
+        <xsd:annotation>
+          <xsd:documentation>NUMBER1 is a number of length 10 with a decimal position of 0</xsd:documentation>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:integer">
+          <xsd:totalDigits value="10"/>
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="NUMBER2_TypeDef">
+        <xsd:annotation>
+          <xsd:documentation>NUMBER2 is a number of length 10 with a decimal position of 0</xsd:documentation>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:integer">
+          <xsd:totalDigits value="10"/>
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="NUMBER3_TypeDef">
+        <xsd:annotation>
+          <xsd:documentation>NUMBER3 is a number of length 10 with a decimal position of 0</xsd:documentation>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:integer">
+          <xsd:totalDigits value="10"/>
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="NUMBER4_TypeDef">
+        <xsd:annotation>
+          <xsd:documentation>NUMBER4 is a number of length 10 with a decimal position of 0</xsd:documentation>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:integer">
+          <xsd:totalDigits value="10"/>
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="DP_RECORDNUMBER1_TypeDef">
+        <xsd:annotation>
+          <xsd:documentation>DP_RECORDNUMBER1  </xsd:documentation>
+          <xsd:documentation>DP_RECORDNUMBER1 is a number of length 8 with a decimal position of 0</xsd:documentation>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:integer">
+          <xsd:totalDigits value="8"/>
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:complexType name="PSCAMAMsgDataRecord_TypeShape">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="LANGUAGE_CD" type="LANGUAGE_CD_TypeShape"/>
+          <xsd:element minOccurs="0" name="AUDIT_ACTN" type="AUDIT_ACTN_TypeShape"/>
+          <xsd:element minOccurs="0" name="BASE_LANGUAGE_CD" type="BASE_LANGUAGE_CD_TypeShape"/>
+          <xsd:element minOccurs="0" name="MSG_SEQ_FLG" type="MSG_SEQ_FLG_TypeShape"/>
+          <xsd:element minOccurs="0" name="PROCESS_INSTANCE" type="PROCESS_INSTANCE_TypeShape"/>
+          <xsd:element minOccurs="0" name="PUBLISH_RULE_ID" type="PUBLISH_RULE_ID_TypeShape"/>
+          <xsd:element minOccurs="0" name="MSGNODENAME" type="MSGNODENAME_TypeShape"/>
+        </xsd:sequence>
+        <xsd:attribute fixed="R" name="class" type="xsd:string" use="required"/>
+      </xsd:complexType>
+      <xsd:complexType name="LANGUAGE_CD_TypeShape">
+        <xsd:simpleContent>
+          <xsd:extension base="LANGUAGE_CD_TypeDef">
+            <xsd:attribute name="IsChanged" type="xsd:string" use="optional"/>
+          </xsd:extension>
+        </xsd:simpleContent>
+      </xsd:complexType>
+      <xsd:complexType name="AUDIT_ACTN_TypeShape">
+        <xsd:simpleContent>
+          <xsd:extension base="AUDIT_ACTN_TypeDef">
+            <xsd:attribute name="IsChanged" type="xsd:string" use="optional"/>
+          </xsd:extension>
+        </xsd:simpleContent>
+      </xsd:complexType>
+      <xsd:complexType name="BASE_LANGUAGE_CD_TypeShape">
+        <xsd:simpleContent>
+          <xsd:extension base="BASE_LANGUAGE_CD_TypeDef">
+            <xsd:attribute name="IsChanged" type="xsd:string" use="optional"/>
+          </xsd:extension>
+        </xsd:simpleContent>
+      </xsd:complexType>
+      <xsd:complexType name="MSG_SEQ_FLG_TypeShape">
+        <xsd:simpleContent>
+          <xsd:extension base="MSG_SEQ_FLG_TypeDef">
+            <xsd:attribute name="IsChanged" type="xsd:string" use="optional"/>
+          </xsd:extension>
+        </xsd:simpleContent>
+      </xsd:complexType>
+      <xsd:complexType name="PROCESS_INSTANCE_TypeShape">
+        <xsd:simpleContent>
+          <xsd:extension base="PROCESS_INSTANCE_TypeDef">
+            <xsd:attribute name="IsChanged" type="xsd:string" use="optional"/>
+          </xsd:extension>
+        </xsd:simpleContent>
+      </xsd:complexType>
+      <xsd:complexType name="PUBLISH_RULE_ID_TypeShape">
+        <xsd:simpleContent>
+          <xsd:extension base="PUBLISH_RULE_ID_TypeDef">
+            <xsd:attribute name="IsChanged" type="xsd:string" use="optional"/>
+          </xsd:extension>
+        </xsd:simpleContent>
+      </xsd:complexType>
+      <xsd:complexType name="MSGNODENAME_TypeShape">
+        <xsd:simpleContent>
+          <xsd:extension base="MSGNODENAME_TypeDef">
+            <xsd:attribute name="IsChanged" type="xsd:string" use="optional"/>
+          </xsd:extension>
+        </xsd:simpleContent>
+      </xsd:complexType>
+      <xsd:simpleType name="LANGUAGE_CD_TypeDef">
+        <xsd:annotation>
+          <xsd:documentation>Language Code</xsd:documentation>
+          <xsd:documentation>LANGUAGE_CD is a character of length 3. Allows Uppercase characters including numbers</xsd:documentation>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:string">
+          <xsd:maxLength value="3"/>
+          <xsd:whiteSpace value="preserve"/>
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="AUDIT_ACTN_TypeDef">
+        <xsd:annotation>
+          <xsd:documentation>Audit Action Code for Application Messages.  This tells the subscriber whether the row has been added, changed, or deleted.</xsd:documentation>
+          <xsd:documentation>AUDIT_ACTN is a character of length 1. Allows Uppercase characters including numbers</xsd:documentation>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:string">
+          <xsd:maxLength value="1"/>
+          <xsd:whiteSpace value="preserve"/>
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="BASE_LANGUAGE_CD_TypeDef">
+        <xsd:annotation>
+          <xsd:documentation>BASE_LANGUAGE_CD is a character of length 3. Allows Uppercase characters including numbers</xsd:documentation>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:string">
+          <xsd:maxLength value="3"/>
+          <xsd:whiteSpace value="preserve"/>
+          <xsd:pattern value="([A-Z]|[0-9]|\p{Z}|\p{P}|\p{Lu})*"/>
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="MSG_SEQ_FLG_TypeDef">
+        <xsd:annotation>
+          <xsd:documentation>MSG_SEQ_FLG is a character of length 1. Allows Uppercase characters including numbers</xsd:documentation>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:string">
+          <xsd:maxLength value="1"/>
+          <xsd:whiteSpace value="preserve"/>
+          <xsd:pattern value="([A-Z]|[0-9]|\p{Z}|\p{P}|\p{Lu})*"/>
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="PROCESS_INSTANCE_TypeDef">
+        <xsd:annotation>
+          <xsd:documentation>Process Instance</xsd:documentation>
+          <xsd:documentation>PROCESS_INSTANCE is a number of length 10 with a decimal position of 0</xsd:documentation>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:integer">
+          <xsd:totalDigits value="10"/>
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="PUBLISH_RULE_ID_TypeDef">
+        <xsd:annotation>
+          <xsd:documentation>Publish Rule ID</xsd:documentation>
+          <xsd:documentation>PUBLISH_RULE_ID is a character of length 30. Allows Uppercase characters including numbers</xsd:documentation>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:string">
+          <xsd:maxLength value="30"/>
+          <xsd:whiteSpace value="preserve"/>
+          <xsd:pattern value="([A-Z]|[0-9]|\p{Z}|\p{P}|\p{Lu})*"/>
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="MSGNODENAME_TypeDef">
+        <xsd:annotation>
+          <xsd:documentation>Application Message Node Name.  Name of the Application Message Node Definition.</xsd:documentation>
+          <xsd:documentation>MSGNODENAME is a character of length 30. Allows Uppercase characters including numbers</xsd:documentation>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:string">
+          <xsd:maxLength value="30"/>
+          <xsd:whiteSpace value="preserve"/>
+          <xsd:pattern value="([A-Z]|[0-9]|\p{Z}|\p{P}|\p{Lu})*"/>
+        </xsd:restriction>
+      </xsd:simpleType>
+    </xsd:schema>
+    <xsd:schema elementFormDefault="qualified" targetNamespace="http://xmlns.oracle.com/Enterprise/Tools/schemas/ANZ_GET_SUPDFA_RES.1" xmlns="http://xmlns.oracle.com/Enterprise/Tools/schemas/ANZ_GET_SUPDFA_RES.1" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+      <xsd:element name="ANZ_GET_SUPDFA_RES" type="ANZ_GET_SUPDFA_RES_TypeShape"/>
+      <xsd:complexType name="ANZ_GET_SUPDFA_RES_TypeShape">
+        <xsd:sequence>
+          <xsd:element name="FieldTypes" type="FieldTypes_TypeShape"/>
+          <xsd:element name="MsgData" type="MsgData_TypeShape"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="FieldTypes_TypeShape">
+        <xsd:all>
+          <xsd:element name="ANZ_SUPDFA_RES" type="FieldTypesANZ_SUPDFA_RES_TypeShape"/>
+          <xsd:element name="PSCAMA" type="FieldTypesPSCAMA_TypeShape"/>
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="FieldTypesANZ_SUPDFA_RES_TypeShape">
+        <xsd:sequence>
+          <xsd:element name="EMPLID" type="FieldTypesCharFieldType"/>
+          <xsd:element name="EMPL_RCD" type="FieldTypesNumberFieldType"/>
+          <xsd:element minOccurs="0" name="HR_STATUS" type="FieldTypesCharFieldType"/>
+          <xsd:element name="POSITION_NBR" type="FieldTypesCharFieldType"/>
+          <xsd:element minOccurs="0" name="ANZ_DFA_AMOUNT" type="FieldTypesNumberFieldType"/>
+          <xsd:element minOccurs="0" name="CURRENCY_CD" type="FieldTypesCharFieldType"/>
+          <xsd:element minOccurs="0" name="ANZ_DFA_NLL_AMOUNT" type="FieldTypesNumberFieldType"/>
+          <xsd:element minOccurs="0" name="DESCR100A" type="FieldTypesCharFieldType"/>
+          <xsd:element minOccurs="0" name="DESCR100B" type="FieldTypesCharFieldType"/>
+          <xsd:element minOccurs="0" name="DESCR100C" type="FieldTypesCharFieldType"/>
+          <xsd:element minOccurs="0" name="DESCR100D" type="FieldTypesCharFieldType"/>
+          <xsd:element minOccurs="0" name="DESCR100E" type="FieldTypesCharFieldType"/>
+          <xsd:element minOccurs="0" name="DESCR100F" type="FieldTypesCharFieldType"/>
+          <xsd:element minOccurs="0" name="DESCR100G" type="FieldTypesCharFieldType"/>
+          <xsd:element minOccurs="0" name="DESCR100H" type="FieldTypesCharFieldType"/>
+          <xsd:element minOccurs="0" name="DESCR100I" type="FieldTypesCharFieldType"/>
+          <xsd:element minOccurs="0" name="DESCR100J" type="FieldTypesCharFieldType"/>
+          <xsd:element minOccurs="0" name="DESCR100_1" type="FieldTypesCharFieldType"/>
+          <xsd:element minOccurs="0" name="DESCR100_2" type="FieldTypesCharFieldType"/>
+          <xsd:element minOccurs="0" name="DESCR100_3" type="FieldTypesCharFieldType"/>
+          <xsd:element minOccurs="0" name="DESCR100_4" type="FieldTypesCharFieldType"/>
+          <xsd:element minOccurs="0" name="FLAG1" type="FieldTypesCharFieldType"/>
+          <xsd:element minOccurs="0" name="FLAG2" type="FieldTypesCharFieldType"/>
+          <xsd:element minOccurs="0" name="FLAG3" type="FieldTypesCharFieldType"/>
+          <xsd:element minOccurs="0" name="FLAG4" type="FieldTypesCharFieldType"/>
+          <xsd:element minOccurs="0" name="FLAG5" type="FieldTypesCharFieldType"/>
+          <xsd:element minOccurs="0" name="FLAG6" type="FieldTypesCharFieldType"/>
+          <xsd:element minOccurs="0" name="FLAG7" type="FieldTypesCharFieldType"/>
+          <xsd:element minOccurs="0" name="FLAG8" type="FieldTypesCharFieldType"/>
+          <xsd:element minOccurs="0" name="FLAG9" type="FieldTypesCharFieldType"/>
+          <xsd:element name="EFFDT" type="FieldTypesDateFieldType"/>
+          <xsd:element minOccurs="0" name="USER_DATE1" type="FieldTypesDateFieldType"/>
+          <xsd:element minOccurs="0" name="USER_DATE2" type="FieldTypesDateFieldType"/>
+          <xsd:element minOccurs="0" name="USER_DATE3" type="FieldTypesDateFieldType"/>
+          <xsd:element minOccurs="0" name="DATE1" type="FieldTypesDateFieldType"/>
+          <xsd:element minOccurs="0" name="DATE2" type="FieldTypesDateFieldType"/>
+          <xsd:element minOccurs="0" name="DATE3" type="FieldTypesDateFieldType"/>
+          <xsd:element minOccurs="0" name="DATE4" type="FieldTypesDateFieldType"/>
+          <xsd:element minOccurs="0" name="DATE5" type="FieldTypesDateFieldType"/>
+          <xsd:element minOccurs="0" name="DATEVAL1" type="FieldTypesDateFieldType"/>
+          <xsd:element minOccurs="0" name="DATEVAL2" type="FieldTypesDateFieldType"/>
+          <xsd:element minOccurs="0" name="DATEVAL3" type="FieldTypesDateFieldType"/>
+          <xsd:element minOccurs="0" name="DATEVAL4" type="FieldTypesDateFieldType"/>
+          <xsd:element minOccurs="0" name="DATEVAL5" type="FieldTypesDateFieldType"/>
+          <xsd:element minOccurs="0" name="NUMBER1" type="FieldTypesNumberFieldType"/>
+          <xsd:element minOccurs="0" name="NUMBER2" type="FieldTypesNumberFieldType"/>
+          <xsd:element minOccurs="0" name="NUMBER3" type="FieldTypesNumberFieldType"/>
+          <xsd:element minOccurs="0" name="NUMBER4" type="FieldTypesNumberFieldType"/>
+          <xsd:element minOccurs="0" name="DP_RECORDNUMBER1" type="FieldTypesNumberFieldType"/>
+          <xsd:element minOccurs="0" name="DP_RECORDNUMBER2" type="FieldTypesNumberFieldType"/>
+          <xsd:element minOccurs="0" name="DP_RECORDNUMBER3" type="FieldTypesNumberFieldType"/>
+          <xsd:element minOccurs="0" name="DP_RECORDNUMBER4" type="FieldTypesNumberFieldType"/>
+          <xsd:element minOccurs="0" name="DP_RECORDNUMBER5" type="FieldTypesNumberFieldType"/>
+          <xsd:element minOccurs="0" name="DP_RECORDNUMBER6" type="FieldTypesNumberFieldType"/>
+          <xsd:element minOccurs="0" name="DP_RECORDNUMBER7" type="FieldTypesNumberFieldType"/>
+          <xsd:element minOccurs="0" name="PERCENTAGE1" type="FieldTypesNumberFieldType"/>
+          <xsd:element minOccurs="0" name="PERCENTAGE2" type="FieldTypesNumberFieldType"/>
+          <xsd:element minOccurs="0" name="PERCENTAGE3" type="FieldTypesNumberFieldType"/>
+          <xsd:element minOccurs="0" name="PERCENTAGE4" type="FieldTypesNumberFieldType"/>
+          <xsd:element minOccurs="0" name="DP_NUMBER01" type="FieldTypesNumberFieldType"/>
+          <xsd:element minOccurs="0" name="DP_NUMBER02" type="FieldTypesNumberFieldType"/>
+          <xsd:element minOccurs="0" name="DP_NUMBER03" type="FieldTypesNumberFieldType"/>
+          <xsd:element minOccurs="0" name="DP_NUMBER04" type="FieldTypesNumberFieldType"/>
+          <xsd:element minOccurs="0" name="DP_NUMBER05" type="FieldTypesNumberFieldType"/>
+          <xsd:element minOccurs="0" name="DP_NUMBER06" type="FieldTypesNumberFieldType"/>
+          <xsd:element minOccurs="0" name="DP_NUMBER07" type="FieldTypesNumberFieldType"/>
+          <xsd:element minOccurs="0" name="DP_NUMBER08" type="FieldTypesNumberFieldType"/>
+        </xsd:sequence>
+        <xsd:attribute fixed="R" name="class" type="xsd:string" use="required"/>
+      </xsd:complexType>
+      <xsd:complexType name="FieldTypesPSCAMA_TypeShape">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="LANGUAGE_CD" type="FieldTypesCharFieldType"/>
+          <xsd:element minOccurs="0" name="AUDIT_ACTN" type="FieldTypesCharFieldType"/>
+          <xsd:element minOccurs="0" name="BASE_LANGUAGE_CD" type="FieldTypesCharFieldType"/>
+          <xsd:element minOccurs="0" name="MSG_SEQ_FLG" type="FieldTypesCharFieldType"/>
+          <xsd:element minOccurs="0" name="PROCESS_INSTANCE" type="FieldTypesNumberFieldType"/>
+          <xsd:element minOccurs="0" name="PUBLISH_RULE_ID" type="FieldTypesCharFieldType"/>
+          <xsd:element minOccurs="0" name="MSGNODENAME" type="FieldTypesCharFieldType"/>
+        </xsd:sequence>
+        <xsd:attribute fixed="R" name="class" type="xsd:string" use="required"/>
+      </xsd:complexType>
+      <xsd:complexType name="FieldTypesCharFieldType">
+        <xsd:attribute fixed="CHAR" name="type" type="xsd:string" use="required"/>
+      </xsd:complexType>
+      <xsd:complexType name="FieldTypesNumberFieldType">
+        <xsd:attribute fixed="NUMBER" name="type" type="xsd:string" use="required"/>
+      </xsd:complexType>
+      <xsd:complexType name="FieldTypesDateFieldType">
+        <xsd:attribute fixed="DATE" name="type" type="xsd:string" use="required"/>
+      </xsd:complexType>
+      <xsd:complexType name="FieldTypesTimeFieldType">
+        <xsd:attribute fixed="TIME" name="type" type="xsd:string" use="required"/>
+      </xsd:complexType>
+      <xsd:complexType name="FieldTypesDateTimeFieldType">
+        <xsd:attribute fixed="DATETIME" name="type" type="xsd:string" use="required"/>
+      </xsd:complexType>
+      <xsd:complexType name="FieldTypesImageRefFieldType">
+        <xsd:attribute fixed="IMAGEREFERENCE" name="type" type="xsd:string" use="required"/>
+      </xsd:complexType>
+      <xsd:complexType name="MsgData_TypeShape">
+        <xsd:sequence>
+          <xsd:element maxOccurs="unbounded" minOccurs="0" name="Transaction" type="Transaction_TypeShape"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="Transaction_TypeShape">
+        <xsd:all>
+          <xsd:element minOccurs="0" name="ANZ_SUPDFA_RES" type="ANZ_SUPDFA_RESMsgDataRecord_TypeShape"/>
+          <xsd:element name="PSCAMA" type="PSCAMAMsgDataRecord_TypeShape"/>
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="ANZ_SUPDFA_RESMsgDataRecord_TypeShape">
+        <xsd:sequence>
+          <xsd:element name="EMPLID" type="EMPLID_TypeShape"/>
+          <xsd:element name="EMPL_RCD" type="EMPL_RCD_TypeShape"/>
+          <xsd:element minOccurs="0" name="HR_STATUS" type="HR_STATUS_TypeShape"/>
+          <xsd:element name="POSITION_NBR" type="POSITION_NBR_TypeShape"/>
+          <xsd:element minOccurs="0" name="ANZ_DFA_AMOUNT" type="ANZ_DFA_AMOUNT_TypeShape"/>
+          <xsd:element minOccurs="0" name="CURRENCY_CD" type="CURRENCY_CD_TypeShape"/>
+          <xsd:element minOccurs="0" name="ANZ_DFA_NLL_AMOUNT" type="ANZ_DFA_NLL_AMOUNT_TypeShape"/>
+          <xsd:element minOccurs="0" name="DESCR100A" type="DESCR100A_TypeShape"/>
+          <xsd:element minOccurs="0" name="DESCR100B" type="DESCR100B_TypeShape"/>
+          <xsd:element minOccurs="0" name="DESCR100C" type="DESCR100C_TypeShape"/>
+          <xsd:element minOccurs="0" name="DESCR100D" type="DESCR100D_TypeShape"/>
+          <xsd:element minOccurs="0" name="DESCR100E" type="DESCR100E_TypeShape"/>
+          <xsd:element minOccurs="0" name="DESCR100F" type="DESCR100F_TypeShape"/>
+          <xsd:element minOccurs="0" name="DESCR100G" type="DESCR100G_TypeShape"/>
+          <xsd:element minOccurs="0" name="DESCR100H" type="DESCR100H_TypeShape"/>
+          <xsd:element minOccurs="0" name="DESCR100I" type="DESCR100I_TypeShape"/>
+          <xsd:element minOccurs="0" name="DESCR100J" type="DESCR100J_TypeShape"/>
+          <xsd:element minOccurs="0" name="DESCR100_1" type="DESCR100_1_TypeShape"/>
+          <xsd:element minOccurs="0" name="DESCR100_2" type="DESCR100_2_TypeShape"/>
+          <xsd:element minOccurs="0" name="DESCR100_3" type="DESCR100_3_TypeShape"/>
+          <xsd:element minOccurs="0" name="DESCR100_4" type="DESCR100_4_TypeShape"/>
+          <xsd:element minOccurs="0" name="FLAG1" type="FLAG1_TypeShape"/>
+          <xsd:element minOccurs="0" name="FLAG2" type="FLAG2_TypeShape"/>
+          <xsd:element minOccurs="0" name="FLAG3" type="FLAG3_TypeShape"/>
+          <xsd:element minOccurs="0" name="FLAG4" type="FLAG4_TypeShape"/>
+          <xsd:element minOccurs="0" name="FLAG5" type="FLAG5_TypeShape"/>
+          <xsd:element minOccurs="0" name="FLAG6" type="FLAG6_TypeShape"/>
+          <xsd:element minOccurs="0" name="FLAG7" type="FLAG7_TypeShape"/>
+          <xsd:element minOccurs="0" name="FLAG8" type="FLAG8_TypeShape"/>
+          <xsd:element minOccurs="0" name="FLAG9" type="FLAG9_TypeShape"/>
+          <xsd:element name="EFFDT" type="EFFDT_TypeShape"/>
+          <xsd:element minOccurs="0" name="USER_DATE1" type="USER_DATE1_TypeShape"/>
+          <xsd:element minOccurs="0" name="USER_DATE2" type="USER_DATE2_TypeShape"/>
+          <xsd:element minOccurs="0" name="USER_DATE3" type="USER_DATE3_TypeShape"/>
+          <xsd:element minOccurs="0" name="DATE1" type="DATE1_TypeShape"/>
+          <xsd:element minOccurs="0" name="DATE2" type="DATE2_TypeShape"/>
+          <xsd:element minOccurs="0" name="DATE3" type="DATE3_TypeShape"/>
+          <xsd:element minOccurs="0" name="DATE4" type="DATE4_TypeShape"/>
+          <xsd:element minOccurs="0" name="DATE5" type="DATE5_TypeShape"/>
+          <xsd:element minOccurs="0" name="DATEVAL1" type="DATEVAL1_TypeShape"/>
+          <xsd:element minOccurs="0" name="DATEVAL2" type="DATEVAL2_TypeShape"/>
+          <xsd:element minOccurs="0" name="DATEVAL3" type="DATEVAL3_TypeShape"/>
+          <xsd:element minOccurs="0" name="DATEVAL4" type="DATEVAL4_TypeShape"/>
+          <xsd:element minOccurs="0" name="DATEVAL5" type="DATEVAL5_TypeShape"/>
+          <xsd:element minOccurs="0" name="NUMBER1" type="NUMBER1_TypeShape"/>
+          <xsd:element minOccurs="0" name="NUMBER2" type="NUMBER2_TypeShape"/>
+          <xsd:element minOccurs="0" name="NUMBER3" type="NUMBER3_TypeShape"/>
+          <xsd:element minOccurs="0" name="NUMBER4" type="NUMBER4_TypeShape"/>
+          <xsd:element minOccurs="0" name="DP_RECORDNUMBER1" type="DP_RECORDNUMBER1_TypeShape"/>
+          <xsd:element minOccurs="0" name="DP_RECORDNUMBER2" type="DP_RECORDNUMBER2_TypeShape"/>
+          <xsd:element minOccurs="0" name="DP_RECORDNUMBER3" type="DP_RECORDNUMBER3_TypeShape"/>
+          <xsd:element minOccurs="0" name="DP_RECORDNUMBER4" type="DP_RECORDNUMBER4_TypeShape"/>
+          <xsd:element minOccurs="0" name="DP_RECORDNUMBER5" type="DP_RECORDNUMBER5_TypeShape"/>
+          <xsd:element minOccurs="0" name="DP_RECORDNUMBER6" type="DP_RECORDNUMBER6_TypeShape"/>
+          <xsd:element minOccurs="0" name="DP_RECORDNUMBER7" type="DP_RECORDNUMBER7_TypeShape"/>
+          <xsd:element minOccurs="0" name="PERCENTAGE1" type="PERCENTAGE1_TypeShape"/>
+          <xsd:element minOccurs="0" name="PERCENTAGE2" type="PERCENTAGE2_TypeShape"/>
+          <xsd:element minOccurs="0" name="PERCENTAGE3" type="PERCENTAGE3_TypeShape"/>
+          <xsd:element minOccurs="0" name="PERCENTAGE4" type="PERCENTAGE4_TypeShape"/>
+          <xsd:element minOccurs="0" name="DP_NUMBER01" type="DP_NUMBER01_TypeShape"/>
+          <xsd:element minOccurs="0" name="DP_NUMBER02" type="DP_NUMBER02_TypeShape"/>
+          <xsd:element minOccurs="0" name="DP_NUMBER03" type="DP_NUMBER03_TypeShape"/>
+          <xsd:element minOccurs="0" name="DP_NUMBER04" type="DP_NUMBER04_TypeShape"/>
+          <xsd:element minOccurs="0" name="DP_NUMBER05" type="DP_NUMBER05_TypeShape"/>
+          <xsd:element minOccurs="0" name="DP_NUMBER06" type="DP_NUMBER06_TypeShape"/>
+          <xsd:element minOccurs="0" name="DP_NUMBER07" type="DP_NUMBER07_TypeShape"/>
+          <xsd:element minOccurs="0" name="DP_NUMBER08" type="DP_NUMBER08_TypeShape"/>
+        </xsd:sequence>
+        <xsd:attribute fixed="R" name="class" type="xsd:string" use="required"/>
+      </xsd:complexType>
+      <xsd:complexType name="EMPLID_TypeShape">
+        <xsd:simpleContent>
+          <xsd:extension base="EMPLID_TypeDef">
+            <xsd:attribute name="IsChanged" type="xsd:string" use="optional"/>
+          </xsd:extension>
+        </xsd:simpleContent>
+      </xsd:complexType>
+      <xsd:complexType name="EMPL_RCD_TypeShape">
+        <xsd:simpleContent>
+          <xsd:extension base="EMPL_RCD_TypeDef">
+            <xsd:attribute name="IsChanged" type="xsd:string" use="optional"/>
+          </xsd:extension>
+        </xsd:simpleContent>
+      </xsd:complexType>
+      <xsd:complexType name="HR_STATUS_TypeShape">
+        <xsd:simpleContent>
+          <xsd:extension base="HR_STATUS_TypeDef">
+            <xsd:attribute name="IsChanged" type="xsd:string" use="optional"/>
+          </xsd:extension>
+        </xsd:simpleContent>
+      </xsd:complexType>
+      <xsd:complexType name="POSITION_NBR_TypeShape">
+        <xsd:simpleContent>
+          <xsd:extension base="POSITION_NBR_TypeDef">
+            <xsd:attribute name="IsChanged" type="xsd:string" use="optional"/>
+          </xsd:extension>
+        </xsd:simpleContent>
+      </xsd:complexType>
+      <xsd:complexType name="ANZ_DFA_AMOUNT_TypeShape">
+        <xsd:simpleContent>
+          <xsd:extension base="ANZ_DFA_AMOUNT_TypeDef">
+            <xsd:attribute name="IsChanged" type="xsd:string" use="optional"/>
+          </xsd:extension>
+        </xsd:simpleContent>
+      </xsd:complexType>
+      <xsd:complexType name="CURRENCY_CD_TypeShape">
+        <xsd:simpleContent>
+          <xsd:extension base="CURRENCY_CD_TypeDef">
+            <xsd:attribute name="IsChanged" type="xsd:string" use="optional"/>
+          </xsd:extension>
+        </xsd:simpleContent>
+      </xsd:complexType>
+      <xsd:complexType name="ANZ_DFA_NLL_AMOUNT_TypeShape">
+        <xsd:simpleContent>
+          <xsd:extension base="ANZ_DFA_NLL_AMOUNT_TypeDef">
+            <xsd:attribute name="IsChanged" type="xsd:string" use="optional"/>
+          </xsd:extension>
+        </xsd:simpleContent>
+      </xsd:complexType>
+      <xsd:complexType name="DESCR100A_TypeShape">
+        <xsd:simpleContent>
+          <xsd:extension base="DESCR100A_TypeDef">
+            <xsd:attribute name="IsChanged" type="xsd:string" use="optional"/>
+          </xsd:extension>
+        </xsd:simpleContent>
+      </xsd:complexType>
+      <xsd:complexType name="DESCR100B_TypeShape">
+        <xsd:simpleContent>
+          <xsd:extension base="DESCR100B_TypeDef">
+            <xsd:attribute name="IsChanged" type="xsd:string" use="optional"/>
+          </xsd:extension>
+        </xsd:simpleContent>
+      </xsd:complexType>
+      <xsd:complexType name="DESCR100C_TypeShape">
+        <xsd:simpleContent>
+          <xsd:extension base="DESCR100C_TypeDef">
+            <xsd:attribute name="IsChanged" type="xsd:string" use="optional"/>
+          </xsd:extension>
+        </xsd:simpleContent>
+      </xsd:complexType>
+      <xsd:complexType name="DESCR100D_TypeShape">
+        <xsd:simpleContent>
+          <xsd:extension base="DESCR100D_TypeDef">
+            <xsd:attribute name="IsChanged" type="xsd:string" use="optional"/>
+          </xsd:extension>
+        </xsd:simpleContent>
+      </xsd:complexType>
+      <xsd:complexType name="DESCR100E_TypeShape">
+        <xsd:simpleContent>
+          <xsd:extension base="DESCR100E_TypeDef">
+            <xsd:attribute name="IsChanged" type="xsd:string" use="optional"/>
+          </xsd:extension>
+        </xsd:simpleContent>
+      </xsd:complexType>
+      <xsd:complexType name="DESCR100F_TypeShape">
+        <xsd:simpleContent>
+          <xsd:extension base="DESCR100F_TypeDef">
+            <xsd:attribute name="IsChanged" type="xsd:string" use="optional"/>
+          </xsd:extension>
+        </xsd:simpleContent>
+      </xsd:complexType>
+      <xsd:complexType name="DESCR100G_TypeShape">
+        <xsd:simpleContent>
+          <xsd:extension base="DESCR100G_TypeDef">
+            <xsd:attribute name="IsChanged" type="xsd:string" use="optional"/>
+          </xsd:extension>
+        </xsd:simpleContent>
+      </xsd:complexType>
+      <xsd:complexType name="DESCR100H_TypeShape">
+        <xsd:simpleContent>
+          <xsd:extension base="DESCR100H_TypeDef">
+            <xsd:attribute name="IsChanged" type="xsd:string" use="optional"/>
+          </xsd:extension>
+        </xsd:simpleContent>
+      </xsd:complexType>
+      <xsd:complexType name="DESCR100I_TypeShape">
+        <xsd:simpleContent>
+          <xsd:extension base="DESCR100I_TypeDef">
+            <xsd:attribute name="IsChanged" type="xsd:string" use="optional"/>
+          </xsd:extension>
+        </xsd:simpleContent>
+      </xsd:complexType>
+      <xsd:complexType name="DESCR100J_TypeShape">
+        <xsd:simpleContent>
+          <xsd:extension base="DESCR100J_TypeDef">
+            <xsd:attribute name="IsChanged" type="xsd:string" use="optional"/>
+          </xsd:extension>
+        </xsd:simpleContent>
+      </xsd:complexType>
+      <xsd:complexType name="DESCR100_1_TypeShape">
+        <xsd:simpleContent>
+          <xsd:extension base="DESCR100_1_TypeDef">
+            <xsd:attribute name="IsChanged" type="xsd:string" use="optional"/>
+          </xsd:extension>
+        </xsd:simpleContent>
+      </xsd:complexType>
+      <xsd:complexType name="DESCR100_2_TypeShape">
+        <xsd:simpleContent>
+          <xsd:extension base="DESCR100_2_TypeDef">
+            <xsd:attribute name="IsChanged" type="xsd:string" use="optional"/>
+          </xsd:extension>
+        </xsd:simpleContent>
+      </xsd:complexType>
+      <xsd:complexType name="DESCR100_3_TypeShape">
+        <xsd:simpleContent>
+          <xsd:extension base="DESCR100_3_TypeDef">
+            <xsd:attribute name="IsChanged" type="xsd:string" use="optional"/>
+          </xsd:extension>
+        </xsd:simpleContent>
+      </xsd:complexType>
+      <xsd:complexType name="DESCR100_4_TypeShape">
+        <xsd:simpleContent>
+          <xsd:extension base="DESCR100_4_TypeDef">
+            <xsd:attribute name="IsChanged" type="xsd:string" use="optional"/>
+          </xsd:extension>
+        </xsd:simpleContent>
+      </xsd:complexType>
+      <xsd:complexType name="FLAG1_TypeShape">
+        <xsd:simpleContent>
+          <xsd:extension base="FLAG1_TypeDef">
+            <xsd:attribute name="IsChanged" type="xsd:string" use="optional"/>
+          </xsd:extension>
+        </xsd:simpleContent>
+      </xsd:complexType>
+      <xsd:complexType name="FLAG2_TypeShape">
+        <xsd:simpleContent>
+          <xsd:extension base="FLAG2_TypeDef">
+            <xsd:attribute name="IsChanged" type="xsd:string" use="optional"/>
+          </xsd:extension>
+        </xsd:simpleContent>
+      </xsd:complexType>
+      <xsd:complexType name="FLAG3_TypeShape">
+        <xsd:simpleContent>
+          <xsd:extension base="FLAG3_TypeDef">
+            <xsd:attribute name="IsChanged" type="xsd:string" use="optional"/>
+          </xsd:extension>
+        </xsd:simpleContent>
+      </xsd:complexType>
+      <xsd:complexType name="FLAG4_TypeShape">
+        <xsd:simpleContent>
+          <xsd:extension base="FLAG4_TypeDef">
+            <xsd:attribute name="IsChanged" type="xsd:string" use="optional"/>
+          </xsd:extension>
+        </xsd:simpleContent>
+      </xsd:complexType>
+      <xsd:complexType name="FLAG5_TypeShape">
+        <xsd:simpleContent>
+          <xsd:extension base="FLAG5_TypeDef">
+            <xsd:attribute name="IsChanged" type="xsd:string" use="optional"/>
+          </xsd:extension>
+        </xsd:simpleContent>
+      </xsd:complexType>
+      <xsd:complexType name="FLAG6_TypeShape">
+        <xsd:simpleContent>
+          <xsd:extension base="FLAG6_TypeDef">
+            <xsd:attribute name="IsChanged" type="xsd:string" use="optional"/>
+          </xsd:extension>
+        </xsd:simpleContent>
+      </xsd:complexType>
+      <xsd:complexType name="FLAG7_TypeShape">
+        <xsd:simpleContent>
+          <xsd:extension base="FLAG7_TypeDef">
+            <xsd:attribute name="IsChanged" type="xsd:string" use="optional"/>
+          </xsd:extension>
+        </xsd:simpleContent>
+      </xsd:complexType>
+      <xsd:complexType name="FLAG8_TypeShape">
+        <xsd:simpleContent>
+          <xsd:extension base="FLAG8_TypeDef">
+            <xsd:attribute name="IsChanged" type="xsd:string" use="optional"/>
+          </xsd:extension>
+        </xsd:simpleContent>
+      </xsd:complexType>
+      <xsd:complexType name="FLAG9_TypeShape">
+        <xsd:simpleContent>
+          <xsd:extension base="FLAG9_TypeDef">
+            <xsd:attribute name="IsChanged" type="xsd:string" use="optional"/>
+          </xsd:extension>
+        </xsd:simpleContent>
+      </xsd:complexType>
+      <xsd:complexType name="EFFDT_TypeShape">
+        <xsd:simpleContent>
+          <xsd:extension base="EFFDT_TypeDef">
+            <xsd:attribute name="IsChanged" type="xsd:string" use="optional"/>
+          </xsd:extension>
+        </xsd:simpleContent>
+      </xsd:complexType>
+      <xsd:complexType name="USER_DATE1_TypeShape">
+        <xsd:simpleContent>
+          <xsd:extension base="USER_DATE1_TypeDef">
+            <xsd:attribute name="IsChanged" type="xsd:string" use="optional"/>
+          </xsd:extension>
+        </xsd:simpleContent>
+      </xsd:complexType>
+      <xsd:complexType name="USER_DATE2_TypeShape">
+        <xsd:simpleContent>
+          <xsd:extension base="USER_DATE2_TypeDef">
+            <xsd:attribute name="IsChanged" type="xsd:string" use="optional"/>
+          </xsd:extension>
+        </xsd:simpleContent>
+      </xsd:complexType>
+      <xsd:complexType name="USER_DATE3_TypeShape">
+        <xsd:simpleContent>
+          <xsd:extension base="USER_DATE3_TypeDef">
+            <xsd:attribute name="IsChanged" type="xsd:string" use="optional"/>
+          </xsd:extension>
+        </xsd:simpleContent>
+      </xsd:complexType>
+      <xsd:complexType name="DATE1_TypeShape">
+        <xsd:simpleContent>
+          <xsd:extension base="DATE1_TypeDef">
+            <xsd:attribute name="IsChanged" type="xsd:string" use="optional"/>
+          </xsd:extension>
+        </xsd:simpleContent>
+      </xsd:complexType>
+      <xsd:complexType name="DATE2_TypeShape">
+        <xsd:simpleContent>
+          <xsd:extension base="DATE2_TypeDef">
+            <xsd:attribute name="IsChanged" type="xsd:string" use="optional"/>
+          </xsd:extension>
+        </xsd:simpleContent>
+      </xsd:complexType>
+      <xsd:complexType name="DATE3_TypeShape">
+        <xsd:simpleContent>
+          <xsd:extension base="DATE3_TypeDef">
+            <xsd:attribute name="IsChanged" type="xsd:string" use="optional"/>
+          </xsd:extension>
+        </xsd:simpleContent>
+      </xsd:complexType>
+      <xsd:complexType name="DATE4_TypeShape">
+        <xsd:simpleContent>
+          <xsd:extension base="DATE4_TypeDef">
+            <xsd:attribute name="IsChanged" type="xsd:string" use="optional"/>
+          </xsd:extension>
+        </xsd:simpleContent>
+      </xsd:complexType>
+      <xsd:complexType name="DATE5_TypeShape">
+        <xsd:simpleContent>
+          <xsd:extension base="DATE5_TypeDef">
+            <xsd:attribute name="IsChanged" type="xsd:string" use="optional"/>
+          </xsd:extension>
+        </xsd:simpleContent>
+      </xsd:complexType>
+      <xsd:complexType name="DATEVAL1_TypeShape">
+        <xsd:simpleContent>
+          <xsd:extension base="DATEVAL1_TypeDef">
+            <xsd:attribute name="IsChanged" type="xsd:string" use="optional"/>
+          </xsd:extension>
+        </xsd:simpleContent>
+      </xsd:complexType>
+      <xsd:complexType name="DATEVAL2_TypeShape">
+        <xsd:simpleContent>
+          <xsd:extension base="DATEVAL2_TypeDef">
+            <xsd:attribute name="IsChanged" type="xsd:string" use="optional"/>
+          </xsd:extension>
+        </xsd:simpleContent>
+      </xsd:complexType>
+      <xsd:complexType name="DATEVAL3_TypeShape">
+        <xsd:simpleContent>
+          <xsd:extension base="DATEVAL3_TypeDef">
+            <xsd:attribute name="IsChanged" type="xsd:string" use="optional"/>
+          </xsd:extension>
+        </xsd:simpleContent>
+      </xsd:complexType>
+      <xsd:complexType name="DATEVAL4_TypeShape">
+        <xsd:simpleContent>
+          <xsd:extension base="DATEVAL4_TypeDef">
+            <xsd:attribute name="IsChanged" type="xsd:string" use="optional"/>
+          </xsd:extension>
+        </xsd:simpleContent>
+      </xsd:complexType>
+      <xsd:complexType name="DATEVAL5_TypeShape">
+        <xsd:simpleContent>
+          <xsd:extension base="DATEVAL5_TypeDef">
+            <xsd:attribute name="IsChanged" type="xsd:string" use="optional"/>
+          </xsd:extension>
+        </xsd:simpleContent>
+      </xsd:complexType>
+      <xsd:complexType name="NUMBER1_TypeShape">
+        <xsd:simpleContent>
+          <xsd:extension base="NUMBER1_TypeDef">
+            <xsd:attribute name="IsChanged" type="xsd:string" use="optional"/>
+          </xsd:extension>
+        </xsd:simpleContent>
+      </xsd:complexType>
+      <xsd:complexType name="NUMBER2_TypeShape">
+        <xsd:simpleContent>
+          <xsd:extension base="NUMBER2_TypeDef">
+            <xsd:attribute name="IsChanged" type="xsd:string" use="optional"/>
+          </xsd:extension>
+        </xsd:simpleContent>
+      </xsd:complexType>
+      <xsd:complexType name="NUMBER3_TypeShape">
+        <xsd:simpleContent>
+          <xsd:extension base="NUMBER3_TypeDef">
+            <xsd:attribute name="IsChanged" type="xsd:string" use="optional"/>
+          </xsd:extension>
+        </xsd:simpleContent>
+      </xsd:complexType>
+      <xsd:complexType name="NUMBER4_TypeShape">
+        <xsd:simpleContent>
+          <xsd:extension base="NUMBER4_TypeDef">
+            <xsd:attribute name="IsChanged" type="xsd:string" use="optional"/>
+          </xsd:extension>
+        </xsd:simpleContent>
+      </xsd:complexType>
+      <xsd:complexType name="DP_RECORDNUMBER1_TypeShape">
+        <xsd:simpleContent>
+          <xsd:extension base="DP_RECORDNUMBER1_TypeDef">
+            <xsd:attribute name="IsChanged" type="xsd:string" use="optional"/>
+          </xsd:extension>
+        </xsd:simpleContent>
+      </xsd:complexType>
+      <xsd:complexType name="DP_RECORDNUMBER2_TypeShape">
+        <xsd:simpleContent>
+          <xsd:extension base="DP_RECORDNUMBER2_TypeDef">
+            <xsd:attribute name="IsChanged" type="xsd:string" use="optional"/>
+          </xsd:extension>
+        </xsd:simpleContent>
+      </xsd:complexType>
+      <xsd:complexType name="DP_RECORDNUMBER3_TypeShape">
+        <xsd:simpleContent>
+          <xsd:extension base="DP_RECORDNUMBER3_TypeDef">
+            <xsd:attribute name="IsChanged" type="xsd:string" use="optional"/>
+          </xsd:extension>
+        </xsd:simpleContent>
+      </xsd:complexType>
+      <xsd:complexType name="DP_RECORDNUMBER4_TypeShape">
+        <xsd:simpleContent>
+          <xsd:extension base="DP_RECORDNUMBER4_TypeDef">
+            <xsd:attribute name="IsChanged" type="xsd:string" use="optional"/>
+          </xsd:extension>
+        </xsd:simpleContent>
+      </xsd:complexType>
+      <xsd:complexType name="DP_RECORDNUMBER5_TypeShape">
+        <xsd:simpleContent>
+          <xsd:extension base="DP_RECORDNUMBER5_TypeDef">
+            <xsd:attribute name="IsChanged" type="xsd:string" use="optional"/>
+          </xsd:extension>
+        </xsd:simpleContent>
+      </xsd:complexType>
+      <xsd:complexType name="DP_RECORDNUMBER6_TypeShape">
+        <xsd:simpleContent>
+          <xsd:extension base="DP_RECORDNUMBER6_TypeDef">
+            <xsd:attribute name="IsChanged" type="xsd:string" use="optional"/>
+          </xsd:extension>
+        </xsd:simpleContent>
+      </xsd:complexType>
+      <xsd:complexType name="DP_RECORDNUMBER7_TypeShape">
+        <xsd:simpleContent>
+          <xsd:extension base="DP_RECORDNUMBER7_TypeDef">
+            <xsd:attribute name="IsChanged" type="xsd:string" use="optional"/>
+          </xsd:extension>
+        </xsd:simpleContent>
+      </xsd:complexType>
+      <xsd:complexType name="PERCENTAGE1_TypeShape">
+        <xsd:simpleContent>
+          <xsd:extension base="PERCENTAGE1_TypeDef">
+            <xsd:attribute name="IsChanged" type="xsd:string" use="optional"/>
+          </xsd:extension>
+        </xsd:simpleContent>
+      </xsd:complexType>
+      <xsd:complexType name="PERCENTAGE2_TypeShape">
+        <xsd:simpleContent>
+          <xsd:extension base="PERCENTAGE2_TypeDef">
+            <xsd:attribute name="IsChanged" type="xsd:string" use="optional"/>
+          </xsd:extension>
+        </xsd:simpleContent>
+      </xsd:complexType>
+      <xsd:complexType name="PERCENTAGE3_TypeShape">
+        <xsd:simpleContent>
+          <xsd:extension base="PERCENTAGE3_TypeDef">
+            <xsd:attribute name="IsChanged" type="xsd:string" use="optional"/>
+          </xsd:extension>
+        </xsd:simpleContent>
+      </xsd:complexType>
+      <xsd:complexType name="PERCENTAGE4_TypeShape">
+        <xsd:simpleContent>
+          <xsd:extension base="PERCENTAGE4_TypeDef">
+            <xsd:attribute name="IsChanged" type="xsd:string" use="optional"/>
+          </xsd:extension>
+        </xsd:simpleContent>
+      </xsd:complexType>
+      <xsd:complexType name="DP_NUMBER01_TypeShape">
+        <xsd:simpleContent>
+          <xsd:extension base="DP_NUMBER01_TypeDef">
+            <xsd:attribute name="IsChanged" type="xsd:string" use="optional"/>
+          </xsd:extension>
+        </xsd:simpleContent>
+      </xsd:complexType>
+      <xsd:complexType name="DP_NUMBER02_TypeShape">
+        <xsd:simpleContent>
+          <xsd:extension base="DP_NUMBER02_TypeDef">
+            <xsd:attribute name="IsChanged" type="xsd:string" use="optional"/>
+          </xsd:extension>
+        </xsd:simpleContent>
+      </xsd:complexType>
+      <xsd:complexType name="DP_NUMBER03_TypeShape">
+        <xsd:simpleContent>
+          <xsd:extension base="DP_NUMBER03_TypeDef">
+            <xsd:attribute name="IsChanged" type="xsd:string" use="optional"/>
+          </xsd:extension>
+        </xsd:simpleContent>
+      </xsd:complexType>
+      <xsd:complexType name="DP_NUMBER04_TypeShape">
+        <xsd:simpleContent>
+          <xsd:extension base="DP_NUMBER04_TypeDef">
+            <xsd:attribute name="IsChanged" type="xsd:string" use="optional"/>
+          </xsd:extension>
+        </xsd:simpleContent>
+      </xsd:complexType>
+      <xsd:complexType name="DP_NUMBER05_TypeShape">
+        <xsd:simpleContent>
+          <xsd:extension base="DP_NUMBER05_TypeDef">
+            <xsd:attribute name="IsChanged" type="xsd:string" use="optional"/>
+          </xsd:extension>
+        </xsd:simpleContent>
+      </xsd:complexType>
+      <xsd:complexType name="DP_NUMBER06_TypeShape">
+        <xsd:simpleContent>
+          <xsd:extension base="DP_NUMBER06_TypeDef">
+            <xsd:attribute name="IsChanged" type="xsd:string" use="optional"/>
+          </xsd:extension>
+        </xsd:simpleContent>
+      </xsd:complexType>
+      <xsd:complexType name="DP_NUMBER07_TypeShape">
+        <xsd:simpleContent>
+          <xsd:extension base="DP_NUMBER07_TypeDef">
+            <xsd:attribute name="IsChanged" type="xsd:string" use="optional"/>
+          </xsd:extension>
+        </xsd:simpleContent>
+      </xsd:complexType>
+      <xsd:complexType name="DP_NUMBER08_TypeShape">
+        <xsd:simpleContent>
+          <xsd:extension base="DP_NUMBER08_TypeDef">
+            <xsd:attribute name="IsChanged" type="xsd:string" use="optional"/>
+          </xsd:extension>
+        </xsd:simpleContent>
+      </xsd:complexType>
+      <xsd:simpleType name="EMPLID_TypeDef">
+        <xsd:annotation>
+          <xsd:documentation>Employee ID</xsd:documentation>
+          <xsd:documentation>EMPLID is a character of length 11. Allows Uppercase characters including numbers</xsd:documentation>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:string">
+          <xsd:maxLength value="11"/>
+          <xsd:whiteSpace value="preserve"/>
+          <xsd:pattern value="([A-Z]|[0-9]|\p{Z}|\p{P}|\p{Lu})*"/>
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="EMPL_RCD_TypeDef">
+        <xsd:annotation>
+          <xsd:documentation>Empl Rcd Nbr                  </xsd:documentation>
+          <xsd:documentation>EMPL_RCD is a number of length 3 with a decimal position of 0</xsd:documentation>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:integer">
+          <xsd:totalDigits value="3"/>
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="HR_STATUS_TypeDef">
+        <xsd:annotation>
+          <xsd:documentation>ANZWR100055
+Modified by: Paramita chakraborty
+06-01-2014
+Created new fields for storing HR_STATUS coming from HR through IB</xsd:documentation>
+          <xsd:documentation>HR_STATUS is a character of length 1. Allows Uppercase characters including numbers</xsd:documentation>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:string">
+          <xsd:maxLength value="1"/>
+          <xsd:whiteSpace value="preserve"/>
+          <xsd:pattern value="([A-Z]|[0-9]|\p{Z}|\p{P}|\p{Lu})*"/>
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="POSITION_NBR_TypeDef">
+        <xsd:annotation>
+          <xsd:documentation>Position Number               </xsd:documentation>
+          <xsd:documentation>POSITION_NBR is a character of length 8. Allows Uppercase characters including numbers</xsd:documentation>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:string">
+          <xsd:maxLength value="8"/>
+          <xsd:whiteSpace value="preserve"/>
+          <xsd:pattern value="([A-Z]|[0-9]|\p{Z}|\p{P}|\p{Lu})*"/>
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="ANZ_DFA_AMOUNT_TypeDef">
+        <xsd:annotation>
+          <xsd:documentation>ANZ_DFA_AMOUNT is a number of length 10 with a decimal position of 0</xsd:documentation>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:integer">
+          <xsd:totalDigits value="10"/>
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="CURRENCY_CD_TypeDef">
+        <xsd:annotation>
+          <xsd:documentation>CURRENCY_CD is a character of length 3. Allows Uppercase characters including numbers</xsd:documentation>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:string">
+          <xsd:maxLength value="3"/>
+          <xsd:whiteSpace value="preserve"/>
+          <xsd:pattern value="([A-Z]|[0-9]|\p{Z}|\p{P}|\p{Lu})*"/>
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="ANZ_DFA_NLL_AMOUNT_TypeDef">
+        <xsd:annotation>
+          <xsd:documentation>ANZ_DFA_NLL_AMOUNT is a number of length 10 with a decimal position of 0</xsd:documentation>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:integer">
+          <xsd:totalDigits value="10"/>
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="DESCR100A_TypeDef">
+        <xsd:annotation>
+          <xsd:documentation>DESCR100A is a character of length 100</xsd:documentation>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:string">
+          <xsd:maxLength value="100"/>
+          <xsd:whiteSpace value="preserve"/>
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="DESCR100B_TypeDef">
+        <xsd:annotation>
+          <xsd:documentation>DESCR100B is a character of length 100</xsd:documentation>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:string">
+          <xsd:maxLength value="100"/>
+          <xsd:whiteSpace value="preserve"/>
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="DESCR100C_TypeDef">
+        <xsd:annotation>
+          <xsd:documentation>DESCR100C is a character of length 100</xsd:documentation>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:string">
+          <xsd:maxLength value="100"/>
+          <xsd:whiteSpace value="preserve"/>
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="DESCR100D_TypeDef">
+        <xsd:annotation>
+          <xsd:documentation>DESCR100D is a character of length 100</xsd:documentation>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:string">
+          <xsd:maxLength value="100"/>
+          <xsd:whiteSpace value="preserve"/>
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="DESCR100E_TypeDef">
+        <xsd:annotation>
+          <xsd:documentation>DESCR100E is a character of length 100</xsd:documentation>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:string">
+          <xsd:maxLength value="100"/>
+          <xsd:whiteSpace value="preserve"/>
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="DESCR100F_TypeDef">
+        <xsd:annotation>
+          <xsd:documentation>DESCR100F is a character of length 100</xsd:documentation>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:string">
+          <xsd:maxLength value="100"/>
+          <xsd:whiteSpace value="preserve"/>
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="DESCR100G_TypeDef">
+        <xsd:annotation>
+          <xsd:documentation>DESCR100G is a character of length 100</xsd:documentation>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:string">
+          <xsd:maxLength value="100"/>
+          <xsd:whiteSpace value="preserve"/>
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="DESCR100H_TypeDef">
+        <xsd:annotation>
+          <xsd:documentation>DESCR100H is a character of length 100</xsd:documentation>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:string">
+          <xsd:maxLength value="100"/>
+          <xsd:whiteSpace value="preserve"/>
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="DESCR100I_TypeDef">
+        <xsd:annotation>
+          <xsd:documentation>DESCR100I is a character of length 100</xsd:documentation>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:string">
+          <xsd:maxLength value="100"/>
+          <xsd:whiteSpace value="preserve"/>
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="DESCR100J_TypeDef">
+        <xsd:annotation>
+          <xsd:documentation>DESCR100J is a character of length 100</xsd:documentation>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:string">
+          <xsd:maxLength value="100"/>
+          <xsd:whiteSpace value="preserve"/>
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="DESCR100_1_TypeDef">
+        <xsd:annotation>
+          <xsd:documentation>descr field</xsd:documentation>
+          <xsd:documentation>DESCR100_1 is a character of length 100</xsd:documentation>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:string">
+          <xsd:maxLength value="100"/>
+          <xsd:whiteSpace value="preserve"/>
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="DESCR100_2_TypeDef">
+        <xsd:annotation>
+          <xsd:documentation>Description</xsd:documentation>
+          <xsd:documentation>DESCR100_2 is a character of length 100</xsd:documentation>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:string">
+          <xsd:maxLength value="100"/>
+          <xsd:whiteSpace value="preserve"/>
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="DESCR100_3_TypeDef">
+        <xsd:annotation>
+          <xsd:documentation>descr</xsd:documentation>
+          <xsd:documentation>DESCR100_3 is a character of length 100</xsd:documentation>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:string">
+          <xsd:maxLength value="100"/>
+          <xsd:whiteSpace value="preserve"/>
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="DESCR100_4_TypeDef">
+        <xsd:annotation>
+          <xsd:documentation>descr</xsd:documentation>
+          <xsd:documentation>DESCR100_4 is a character of length 100</xsd:documentation>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:string">
+          <xsd:maxLength value="100"/>
+          <xsd:whiteSpace value="preserve"/>
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="FLAG1_TypeDef">
+        <xsd:annotation>
+          <xsd:documentation>J.Chavarria, 22/01/2002
+ANZCR1538_R4
+- include new label ID (ANZ_PS_CONFIG_DATA) for the Reporting dataStore setup.</xsd:documentation>
+          <xsd:documentation>FLAG1 is a character of length 1. Allows Uppercase characters including numbers</xsd:documentation>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:string">
+          <xsd:maxLength value="1"/>
+          <xsd:whiteSpace value="preserve"/>
+          <xsd:pattern value="([A-Z]|[0-9]|\p{Z}|\p{P}|\p{Lu})*"/>
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="FLAG2_TypeDef">
+        <xsd:annotation>
+          <xsd:documentation>J.Chavarria, 22/01/2002
+ANZCR1538_R4
+- include new label ID (ANZ_PS_INQUIRY) for the Reporting dataStore setup.</xsd:documentation>
+          <xsd:documentation>FLAG2 is a character of length 1. Allows Uppercase characters including numbers</xsd:documentation>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:string">
+          <xsd:maxLength value="1"/>
+          <xsd:whiteSpace value="preserve"/>
+          <xsd:pattern value="([A-Z]|[0-9]|\p{Z}|\p{P}|\p{Lu})*"/>
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="FLAG3_TypeDef">
+        <xsd:annotation>
+          <xsd:documentation>J.Chavarria, 22/01/2002
+ANZCR1538_R4
+- include new label ID (ANZ_GENERATE_VIEW) for the Reporting dataStore setup.</xsd:documentation>
+          <xsd:documentation>FLAG3 is a character of length 1. Allows Uppercase characters including numbers</xsd:documentation>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:string">
+          <xsd:maxLength value="1"/>
+          <xsd:whiteSpace value="preserve"/>
+          <xsd:pattern value="([A-Z]|[0-9]|\p{Z}|\p{P}|\p{Lu})*"/>
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="FLAG4_TypeDef">
+        <xsd:annotation>
+          <xsd:documentation>J.Chavarria, 22/01/2002
+ANZCR1538_R4
+- include new label ID (ANZ_WITH_HISTORY) for the Reporting dataStore setup.</xsd:documentation>
+          <xsd:documentation>FLAG4 is a character of length 1. Allows Uppercase characters including numbers</xsd:documentation>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:string">
+          <xsd:maxLength value="1"/>
+          <xsd:whiteSpace value="preserve"/>
+          <xsd:pattern value="([A-Z]|[0-9]|\p{Z}|\p{P}|\p{Lu})*"/>
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="FLAG5_TypeDef">
+        <xsd:annotation>
+          <xsd:documentation>FLAG5 is a character of length 1. Allows Uppercase characters including numbers</xsd:documentation>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:string">
+          <xsd:maxLength value="1"/>
+          <xsd:whiteSpace value="preserve"/>
+          <xsd:pattern value="([A-Z]|[0-9]|\p{Z}|\p{P}|\p{Lu})*"/>
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="FLAG6_TypeDef">
+        <xsd:annotation>
+          <xsd:documentation>FLAG6 is a character of length 1. Allows Uppercase characters including numbers</xsd:documentation>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:string">
+          <xsd:maxLength value="1"/>
+          <xsd:whiteSpace value="preserve"/>
+          <xsd:pattern value="([A-Z]|[0-9]|\p{Z}|\p{P}|\p{Lu})*"/>
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="FLAG7_TypeDef">
+        <xsd:annotation>
+          <xsd:documentation>FLAG7 is a character of length 1. Allows Uppercase characters including numbers</xsd:documentation>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:string">
+          <xsd:maxLength value="1"/>
+          <xsd:whiteSpace value="preserve"/>
+          <xsd:pattern value="([A-Z]|[0-9]|\p{Z}|\p{P}|\p{Lu})*"/>
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="FLAG8_TypeDef">
+        <xsd:annotation>
+          <xsd:documentation>FLAG8 is a character of length 1. Allows Uppercase characters including numbers</xsd:documentation>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:string">
+          <xsd:maxLength value="1"/>
+          <xsd:whiteSpace value="preserve"/>
+          <xsd:pattern value="([A-Z]|[0-9]|\p{Z}|\p{P}|\p{Lu})*"/>
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="FLAG9_TypeDef">
+        <xsd:annotation>
+          <xsd:documentation>FLAG9 is a character of length 1. Allows Uppercase characters including numbers</xsd:documentation>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:string">
+          <xsd:maxLength value="1"/>
+          <xsd:whiteSpace value="preserve"/>
+          <xsd:pattern value="([A-Z]|[0-9]|\p{Z}|\p{P}|\p{Lu})*"/>
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="EFFDT_TypeDef">
+        <xsd:annotation>
+          <xsd:documentation>Effective Date</xsd:documentation>
+          <xsd:documentation>EFFDT is a date.</xsd:documentation>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:date">
+          <xsd:pattern value="(\d{4}-\d{2}-\d{2})"/>
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="USER_DATE1_TypeDef">
+        <xsd:annotation>
+          <xsd:documentation>USER_DATE1 is a date.</xsd:documentation>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:date">
+          <xsd:pattern value="(\d{4}-\d{2}-\d{2})"/>
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="USER_DATE2_TypeDef">
+        <xsd:annotation>
+          <xsd:documentation>USER_DATE2 is a date.</xsd:documentation>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:date">
+          <xsd:pattern value="(\d{4}-\d{2}-\d{2})"/>
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="USER_DATE3_TypeDef">
+        <xsd:annotation>
+          <xsd:documentation>USER_DATE3 is a date.</xsd:documentation>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:date">
+          <xsd:pattern value="(\d{4}-\d{2}-\d{2})"/>
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="DATE1_TypeDef">
+        <xsd:annotation>
+          <xsd:documentation>DATE1 is a date.</xsd:documentation>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:date">
+          <xsd:pattern value="(\d{4}-\d{2}-\d{2})"/>
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="DATE2_TypeDef">
+        <xsd:annotation>
+          <xsd:documentation>DATE2 is a date.</xsd:documentation>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:date">
+          <xsd:pattern value="(\d{4}-\d{2}-\d{2})"/>
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="DATE3_TypeDef">
+        <xsd:annotation>
+          <xsd:documentation>DATE3 is a date.</xsd:documentation>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:date">
+          <xsd:pattern value="(\d{4}-\d{2}-\d{2})"/>
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="DATE4_TypeDef">
+        <xsd:annotation>
+          <xsd:documentation>DATE4 is a date.</xsd:documentation>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:date">
+          <xsd:pattern value="(\d{4}-\d{2}-\d{2})"/>
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="DATE5_TypeDef">
+        <xsd:annotation>
+          <xsd:documentation>DATE5 is a date.</xsd:documentation>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:date">
+          <xsd:pattern value="(\d{4}-\d{2}-\d{2})"/>
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="DATEVAL1_TypeDef">
+        <xsd:annotation>
+          <xsd:documentation>DATEVAL1 is a date.</xsd:documentation>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:date">
+          <xsd:pattern value="(\d{4}-\d{2}-\d{2})"/>
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="DATEVAL2_TypeDef">
+        <xsd:annotation>
+          <xsd:documentation>DATEVAL2 is a date.</xsd:documentation>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:date">
+          <xsd:pattern value="(\d{4}-\d{2}-\d{2})"/>
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="DATEVAL3_TypeDef">
+        <xsd:annotation>
+          <xsd:documentation>DATEVAL3 is a date.</xsd:documentation>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:date">
+          <xsd:pattern value="(\d{4}-\d{2}-\d{2})"/>
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="DATEVAL4_TypeDef">
+        <xsd:annotation>
+          <xsd:documentation>DATEVAL4 is a date.</xsd:documentation>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:date">
+          <xsd:pattern value="(\d{4}-\d{2}-\d{2})"/>
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="DATEVAL5_TypeDef">
+        <xsd:annotation>
+          <xsd:documentation>DATEVAL5 is a date.</xsd:documentation>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:date">
+          <xsd:pattern value="(\d{4}-\d{2}-\d{2})"/>
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="NUMBER1_TypeDef">
+        <xsd:annotation>
+          <xsd:documentation>NUMBER1 is a number of length 10 with a decimal position of 0</xsd:documentation>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:integer">
+          <xsd:totalDigits value="10"/>
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="NUMBER2_TypeDef">
+        <xsd:annotation>
+          <xsd:documentation>NUMBER2 is a number of length 10 with a decimal position of 0</xsd:documentation>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:integer">
+          <xsd:totalDigits value="10"/>
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="NUMBER3_TypeDef">
+        <xsd:annotation>
+          <xsd:documentation>NUMBER3 is a number of length 10 with a decimal position of 0</xsd:documentation>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:integer">
+          <xsd:totalDigits value="10"/>
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="NUMBER4_TypeDef">
+        <xsd:annotation>
+          <xsd:documentation>NUMBER4 is a number of length 10 with a decimal position of 0</xsd:documentation>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:integer">
+          <xsd:totalDigits value="10"/>
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="DP_RECORDNUMBER1_TypeDef">
+        <xsd:annotation>
+          <xsd:documentation>DP_RECORDNUMBER1  </xsd:documentation>
+          <xsd:documentation>DP_RECORDNUMBER1 is a number of length 8 with a decimal position of 0</xsd:documentation>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:integer">
+          <xsd:totalDigits value="8"/>
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="DP_RECORDNUMBER2_TypeDef">
+        <xsd:annotation>
+          <xsd:documentation>DP_RECORDNUMBER2  </xsd:documentation>
+          <xsd:documentation>DP_RECORDNUMBER2 is a number of length 8 with a decimal position of 0</xsd:documentation>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:integer">
+          <xsd:totalDigits value="8"/>
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="DP_RECORDNUMBER3_TypeDef">
+        <xsd:annotation>
+          <xsd:documentation>DP_RECORDNUMBER3  </xsd:documentation>
+          <xsd:documentation>DP_RECORDNUMBER3 is a number of length 8 with a decimal position of 0</xsd:documentation>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:integer">
+          <xsd:totalDigits value="8"/>
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="DP_RECORDNUMBER4_TypeDef">
+        <xsd:annotation>
+          <xsd:documentation>DP_RECORDNUMBER4  </xsd:documentation>
+          <xsd:documentation>DP_RECORDNUMBER4 is a number of length 8 with a decimal position of 0</xsd:documentation>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:integer">
+          <xsd:totalDigits value="8"/>
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="DP_RECORDNUMBER5_TypeDef">
+        <xsd:annotation>
+          <xsd:documentation>DP_RECORDNUMBER5  </xsd:documentation>
+          <xsd:documentation>DP_RECORDNUMBER5 is a number of length 8 with a decimal position of 0</xsd:documentation>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:integer">
+          <xsd:totalDigits value="8"/>
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="DP_RECORDNUMBER6_TypeDef">
+        <xsd:annotation>
+          <xsd:documentation>DP_RECORDNUMBER6  </xsd:documentation>
+          <xsd:documentation>DP_RECORDNUMBER6 is a number of length 8 with a decimal position of 0</xsd:documentation>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:integer">
+          <xsd:totalDigits value="8"/>
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="DP_RECORDNUMBER7_TypeDef">
+        <xsd:annotation>
+          <xsd:documentation>DP_RECORDNUMBER7  </xsd:documentation>
+          <xsd:documentation>DP_RECORDNUMBER7 is a number of length 8 with a decimal position of 0</xsd:documentation>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:integer">
+          <xsd:totalDigits value="8"/>
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="PERCENTAGE1_TypeDef">
+        <xsd:annotation>
+          <xsd:documentation>Percentage                    </xsd:documentation>
+          <xsd:documentation>PERCENTAGE1 is a number of length 7 with a decimal position of 2</xsd:documentation>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:decimal">
+          <xsd:fractionDigits value="2"/>
+          <xsd:totalDigits value="7"/>
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="PERCENTAGE2_TypeDef">
+        <xsd:annotation>
+          <xsd:documentation>Percentage                    </xsd:documentation>
+          <xsd:documentation>PERCENTAGE2 is a number of length 7 with a decimal position of 2</xsd:documentation>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:decimal">
+          <xsd:fractionDigits value="2"/>
+          <xsd:totalDigits value="7"/>
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="PERCENTAGE3_TypeDef">
+        <xsd:annotation>
+          <xsd:documentation>PERCENTAGE3 is a number of length 7 with a decimal position of 2</xsd:documentation>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:decimal">
+          <xsd:fractionDigits value="2"/>
+          <xsd:totalDigits value="7"/>
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="PERCENTAGE4_TypeDef">
+        <xsd:annotation>
+          <xsd:documentation>PERCENTAGE4 is a number of length 7 with a decimal position of 2</xsd:documentation>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:decimal">
+          <xsd:fractionDigits value="2"/>
+          <xsd:totalDigits value="7"/>
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="DP_NUMBER01_TypeDef">
+        <xsd:annotation>
+          <xsd:documentation>DP_NUMBER01       </xsd:documentation>
+          <xsd:documentation>DP_NUMBER01 is a number of length 16 with a decimal position of 4</xsd:documentation>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:decimal">
+          <xsd:fractionDigits value="4"/>
+          <xsd:totalDigits value="16"/>
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="DP_NUMBER02_TypeDef">
+        <xsd:annotation>
+          <xsd:documentation>DP_NUMBER02       </xsd:documentation>
+          <xsd:documentation>DP_NUMBER02 is a number of length 16 with a decimal position of 4</xsd:documentation>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:decimal">
+          <xsd:fractionDigits value="4"/>
+          <xsd:totalDigits value="16"/>
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="DP_NUMBER03_TypeDef">
+        <xsd:annotation>
+          <xsd:documentation>DP_NUMBER03       </xsd:documentation>
+          <xsd:documentation>DP_NUMBER03 is a number of length 16 with a decimal position of 4</xsd:documentation>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:decimal">
+          <xsd:fractionDigits value="4"/>
+          <xsd:totalDigits value="16"/>
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="DP_NUMBER04_TypeDef">
+        <xsd:annotation>
+          <xsd:documentation>DP_NUMBER04       </xsd:documentation>
+          <xsd:documentation>DP_NUMBER04 is a number of length 16 with a decimal position of 4</xsd:documentation>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:decimal">
+          <xsd:fractionDigits value="4"/>
+          <xsd:totalDigits value="16"/>
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="DP_NUMBER05_TypeDef">
+        <xsd:annotation>
+          <xsd:documentation>DP_NUMBER05       </xsd:documentation>
+          <xsd:documentation>DP_NUMBER05 is a number of length 16 with a decimal position of 4</xsd:documentation>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:decimal">
+          <xsd:fractionDigits value="4"/>
+          <xsd:totalDigits value="16"/>
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="DP_NUMBER06_TypeDef">
+        <xsd:annotation>
+          <xsd:documentation>DP_NUMBER06       </xsd:documentation>
+          <xsd:documentation>DP_NUMBER06 is a number of length 16 with a decimal position of 4</xsd:documentation>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:decimal">
+          <xsd:fractionDigits value="4"/>
+          <xsd:totalDigits value="16"/>
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="DP_NUMBER07_TypeDef">
+        <xsd:annotation>
+          <xsd:documentation>DP_NUMBER07       </xsd:documentation>
+          <xsd:documentation>DP_NUMBER07 is a number of length 16 with a decimal position of 4</xsd:documentation>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:decimal">
+          <xsd:fractionDigits value="4"/>
+          <xsd:totalDigits value="16"/>
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="DP_NUMBER08_TypeDef">
+        <xsd:annotation>
+          <xsd:documentation>DP_NUMBER08       </xsd:documentation>
+          <xsd:documentation>DP_NUMBER08 is a number of length 16 with a decimal position of 4</xsd:documentation>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:decimal">
+          <xsd:fractionDigits value="4"/>
+          <xsd:totalDigits value="16"/>
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:complexType name="PSCAMAMsgDataRecord_TypeShape">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="LANGUAGE_CD" type="LANGUAGE_CD_TypeShape"/>
+          <xsd:element minOccurs="0" name="AUDIT_ACTN" type="AUDIT_ACTN_TypeShape"/>
+          <xsd:element minOccurs="0" name="BASE_LANGUAGE_CD" type="BASE_LANGUAGE_CD_TypeShape"/>
+          <xsd:element minOccurs="0" name="MSG_SEQ_FLG" type="MSG_SEQ_FLG_TypeShape"/>
+          <xsd:element minOccurs="0" name="PROCESS_INSTANCE" type="PROCESS_INSTANCE_TypeShape"/>
+          <xsd:element minOccurs="0" name="PUBLISH_RULE_ID" type="PUBLISH_RULE_ID_TypeShape"/>
+          <xsd:element minOccurs="0" name="MSGNODENAME" type="MSGNODENAME_TypeShape"/>
+        </xsd:sequence>
+        <xsd:attribute fixed="R" name="class" type="xsd:string" use="required"/>
+      </xsd:complexType>
+      <xsd:complexType name="LANGUAGE_CD_TypeShape">
+        <xsd:simpleContent>
+          <xsd:extension base="LANGUAGE_CD_TypeDef">
+            <xsd:attribute name="IsChanged" type="xsd:string" use="optional"/>
+          </xsd:extension>
+        </xsd:simpleContent>
+      </xsd:complexType>
+      <xsd:complexType name="AUDIT_ACTN_TypeShape">
+        <xsd:simpleContent>
+          <xsd:extension base="AUDIT_ACTN_TypeDef">
+            <xsd:attribute name="IsChanged" type="xsd:string" use="optional"/>
+          </xsd:extension>
+        </xsd:simpleContent>
+      </xsd:complexType>
+      <xsd:complexType name="BASE_LANGUAGE_CD_TypeShape">
+        <xsd:simpleContent>
+          <xsd:extension base="BASE_LANGUAGE_CD_TypeDef">
+            <xsd:attribute name="IsChanged" type="xsd:string" use="optional"/>
+          </xsd:extension>
+        </xsd:simpleContent>
+      </xsd:complexType>
+      <xsd:complexType name="MSG_SEQ_FLG_TypeShape">
+        <xsd:simpleContent>
+          <xsd:extension base="MSG_SEQ_FLG_TypeDef">
+            <xsd:attribute name="IsChanged" type="xsd:string" use="optional"/>
+          </xsd:extension>
+        </xsd:simpleContent>
+      </xsd:complexType>
+      <xsd:complexType name="PROCESS_INSTANCE_TypeShape">
+        <xsd:simpleContent>
+          <xsd:extension base="PROCESS_INSTANCE_TypeDef">
+            <xsd:attribute name="IsChanged" type="xsd:string" use="optional"/>
+          </xsd:extension>
+        </xsd:simpleContent>
+      </xsd:complexType>
+      <xsd:complexType name="PUBLISH_RULE_ID_TypeShape">
+        <xsd:simpleContent>
+          <xsd:extension base="PUBLISH_RULE_ID_TypeDef">
+            <xsd:attribute name="IsChanged" type="xsd:string" use="optional"/>
+          </xsd:extension>
+        </xsd:simpleContent>
+      </xsd:complexType>
+      <xsd:complexType name="MSGNODENAME_TypeShape">
+        <xsd:simpleContent>
+          <xsd:extension base="MSGNODENAME_TypeDef">
+            <xsd:attribute name="IsChanged" type="xsd:string" use="optional"/>
+          </xsd:extension>
+        </xsd:simpleContent>
+      </xsd:complexType>
+      <xsd:simpleType name="LANGUAGE_CD_TypeDef">
+        <xsd:annotation>
+          <xsd:documentation>Language Code</xsd:documentation>
+          <xsd:documentation>LANGUAGE_CD is a character of length 3. Allows Uppercase characters including numbers</xsd:documentation>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:string">
+          <xsd:maxLength value="3"/>
+          <xsd:whiteSpace value="preserve"/>
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="AUDIT_ACTN_TypeDef">
+        <xsd:annotation>
+          <xsd:documentation>Audit Action Code for Application Messages.  This tells the subscriber whether the row has been added, changed, or deleted.</xsd:documentation>
+          <xsd:documentation>AUDIT_ACTN is a character of length 1. Allows Uppercase characters including numbers</xsd:documentation>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:string">
+          <xsd:maxLength value="1"/>
+          <xsd:whiteSpace value="preserve"/>
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="BASE_LANGUAGE_CD_TypeDef">
+        <xsd:annotation>
+          <xsd:documentation>BASE_LANGUAGE_CD is a character of length 3. Allows Uppercase characters including numbers</xsd:documentation>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:string">
+          <xsd:maxLength value="3"/>
+          <xsd:whiteSpace value="preserve"/>
+          <xsd:pattern value="([A-Z]|[0-9]|\p{Z}|\p{P}|\p{Lu})*"/>
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="MSG_SEQ_FLG_TypeDef">
+        <xsd:annotation>
+          <xsd:documentation>MSG_SEQ_FLG is a character of length 1. Allows Uppercase characters including numbers</xsd:documentation>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:string">
+          <xsd:maxLength value="1"/>
+          <xsd:whiteSpace value="preserve"/>
+          <xsd:pattern value="([A-Z]|[0-9]|\p{Z}|\p{P}|\p{Lu})*"/>
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="PROCESS_INSTANCE_TypeDef">
+        <xsd:annotation>
+          <xsd:documentation>Process Instance</xsd:documentation>
+          <xsd:documentation>PROCESS_INSTANCE is a number of length 10 with a decimal position of 0</xsd:documentation>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:integer">
+          <xsd:totalDigits value="10"/>
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="PUBLISH_RULE_ID_TypeDef">
+        <xsd:annotation>
+          <xsd:documentation>Publish Rule ID</xsd:documentation>
+          <xsd:documentation>PUBLISH_RULE_ID is a character of length 30. Allows Uppercase characters including numbers</xsd:documentation>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:string">
+          <xsd:maxLength value="30"/>
+          <xsd:whiteSpace value="preserve"/>
+          <xsd:pattern value="([A-Z]|[0-9]|\p{Z}|\p{P}|\p{Lu})*"/>
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="MSGNODENAME_TypeDef">
+        <xsd:annotation>
+          <xsd:documentation>Application Message Node Name.  Name of the Application Message Node Definition.</xsd:documentation>
+          <xsd:documentation>MSGNODENAME is a character of length 30. Allows Uppercase characters including numbers</xsd:documentation>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:string">
+          <xsd:maxLength value="30"/>
+          <xsd:whiteSpace value="preserve"/>
+          <xsd:pattern value="([A-Z]|[0-9]|\p{Z}|\p{P}|\p{Lu})*"/>
+        </xsd:restriction>
+      </xsd:simpleType>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="ANZ_GET_NZ_DFA_REQ.v1">
+    <wsdl:documentation>NZ  Manager DFA for Approval</wsdl:documentation>
+    <wsdl:part element="ANZ_GET_NZ_DFA_REQ.v1:ANZ_GET_NZ_DFA_REQ" name="parameter"/>
+  </wsdl:message>
+  <wsdl:message name="ANZ_GET_SUPDFA_RES.1">
+    <wsdl:documentation>ANZ Get Full Supplier Info</wsdl:documentation>
+    <wsdl:part element="ANZ_GET_SUPDFA_RES.1:ANZ_GET_SUPDFA_RES" name="parameter"/>
+  </wsdl:message>
+  <wsdl:portType name="ANZ_GET_NZ_DFA_AMT_PortType">
+    <wsdl:operation name="ANZ_GET_NZ_DFA_AMT">
+      <wsdl:documentation>NZ  Mgr Amt DFA for Approval</wsdl:documentation>
+      <wsdl:input message="tns:ANZ_GET_NZ_DFA_REQ.v1" name="ANZ_GET_NZ_DFA_REQ.v1"/>
+      <wsdl:output message="tns:ANZ_GET_SUPDFA_RES.1" name="ANZ_GET_SUPDFA_RES.1"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ANZ_GET_NZ_DFA_AMT_Binding" type="tns:ANZ_GET_NZ_DFA_AMT_PortType">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="ANZ_GET_NZ_DFA_AMT">
+      <soap:operation soapAction="ANZ_GET_NZ_DFA_AMT.v1" style="document"/>
+      <wsp:Policy wsu:Id="UsernameTokenSecurityPolicyPasswordRequired" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">
+        <wsp:ExactlyOne>
+          <wsp:All>
+            <wsse:SecurityToken wsp:Usage="wsp:Required" xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd">
+              <wsse:TokenType>wsse:UserNameToken</wsse:TokenType>
+              <Claims>
+                <SubjectName MatchType="wsse:Exact"/>
+                <UsePassword wsp:Usage="wsp:Required"/>
+              </Claims>
+            </wsse:SecurityToken>
+          </wsp:All>
+        </wsp:ExactlyOne>
+      </wsp:Policy>
+      <wsdl:input name="ANZ_GET_NZ_DFA_REQ.v1">
+        <soap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="ANZ_GET_SUPDFA_RES.1">
+        <soap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ANZ_GET_NZ_DFA_AMT">
+    <wsdl:documentation>NZ  Manager DFA for Approval</wsdl:documentation>
+    <wsdl:port binding="tns:ANZ_GET_NZ_DFA_AMT_Binding" name="ANZ_GET_NZ_DFA_AMT_Port">
+      <soap:address location="http://gbfsint.peoplesoft.service.dev:8100/PSIGW/PeopleSoftServiceListeningConnector"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

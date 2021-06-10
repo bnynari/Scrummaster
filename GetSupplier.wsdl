@@ -1,0 +1,1056 @@
+<?xml version="1.0"?>
+<wsdl:definitions name="ANZ_GET_SUP_DETAILS.1" targetNamespace="http://xmlns.oracle.com/Enterprise/Tools/services/ANZ_GET_SUP_DETAILS.1" xmlns:ANZ_GET_SUP_DETAILS_REQ.v1="http://xmlns.oracle.com/Enterprise/Tools/schemas/ANZ_GET_SUP_DETAILS_REQ.v1" xmlns:ANZ_GET_SUP_DETAILS_RES.v1="http://xmlns.oracle.com/Enterprise/Tools/schemas/ANZ_GET_SUP_DETAILS_RES.v1" xmlns:plnk="http://schemas.xmlsoap.org/ws/2003/05/partner-link/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://xmlns.oracle.com/Enterprise/Tools/services/ANZ_GET_SUP_DETAILS.1" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsp="http://schemas.xmlsoap.org/ws/2002/12/policy">
+  <wsp:UsagePolicy wsdl:Required="true"/>
+  <plnk:partnerLinkType name="ANZ_GET_SUP_DETAILS_PartnerLinkType">
+    <plnk:role name="ANZ_GET_SUP_DETAILS_Provider">
+      <plnk:portType name="tns:ANZ_GET_SUP_DETAILS_PortType"/>
+    </plnk:role>
+  </plnk:partnerLinkType>
+  <wsdl:types>
+    <xsd:schema elementFormDefault="qualified" targetNamespace="http://xmlns.oracle.com/Enterprise/Tools/schemas/ANZ_GET_SUP_DETAILS_REQ.v1" xmlns="http://xmlns.oracle.com/Enterprise/Tools/schemas/ANZ_GET_SUP_DETAILS_REQ.v1" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+      <xsd:element name="ANZ_GET_SUP_DETAILS_REQ" type="ANZ_GET_SUP_DETAILS_REQ_TypeShape"/>
+      <xsd:complexType name="ANZ_GET_SUP_DETAILS_REQ_TypeShape">
+        <xsd:sequence>
+          <xsd:element name="FieldTypes" type="FieldTypes_TypeShape"/>
+          <xsd:element name="MsgData" type="MsgData_TypeShape"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="FieldTypes_TypeShape">
+        <xsd:all>
+          <xsd:element name="ANZ_GETSUP_WRK" type="FieldTypesANZ_GETSUP_WRK_TypeShape"/>
+          <xsd:element name="PSCAMA" type="FieldTypesPSCAMA_TypeShape"/>
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="FieldTypesANZ_GETSUP_WRK_TypeShape">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="VNDR_FIELD_C30_C" type="FieldTypesCharFieldType"/>
+          <xsd:element minOccurs="0" name="SETID" type="FieldTypesCharFieldType"/>
+          <xsd:element minOccurs="0" name="VENDOR_ID" type="FieldTypesCharFieldType"/>
+          <xsd:element minOccurs="0" name="VENDOR_STATUS" type="FieldTypesCharFieldType"/>
+        </xsd:sequence>
+        <xsd:attribute fixed="R" name="class" type="xsd:string" use="required"/>
+      </xsd:complexType>
+      <xsd:complexType name="FieldTypesPSCAMA_TypeShape">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="LANGUAGE_CD" type="FieldTypesCharFieldType"/>
+          <xsd:element minOccurs="0" name="AUDIT_ACTN" type="FieldTypesCharFieldType"/>
+          <xsd:element minOccurs="0" name="BASE_LANGUAGE_CD" type="FieldTypesCharFieldType"/>
+          <xsd:element minOccurs="0" name="MSG_SEQ_FLG" type="FieldTypesCharFieldType"/>
+          <xsd:element minOccurs="0" name="PROCESS_INSTANCE" type="FieldTypesNumberFieldType"/>
+          <xsd:element minOccurs="0" name="PUBLISH_RULE_ID" type="FieldTypesCharFieldType"/>
+          <xsd:element minOccurs="0" name="MSGNODENAME" type="FieldTypesCharFieldType"/>
+        </xsd:sequence>
+        <xsd:attribute fixed="R" name="class" type="xsd:string" use="required"/>
+      </xsd:complexType>
+      <xsd:complexType name="FieldTypesCharFieldType">
+        <xsd:attribute fixed="CHAR" name="type" type="xsd:string" use="required"/>
+      </xsd:complexType>
+      <xsd:complexType name="FieldTypesNumberFieldType">
+        <xsd:attribute fixed="NUMBER" name="type" type="xsd:string" use="required"/>
+      </xsd:complexType>
+      <xsd:complexType name="FieldTypesDateFieldType">
+        <xsd:attribute fixed="DATE" name="type" type="xsd:string" use="required"/>
+      </xsd:complexType>
+      <xsd:complexType name="FieldTypesTimeFieldType">
+        <xsd:attribute fixed="TIME" name="type" type="xsd:string" use="required"/>
+      </xsd:complexType>
+      <xsd:complexType name="FieldTypesDateTimeFieldType">
+        <xsd:attribute fixed="DATETIME" name="type" type="xsd:string" use="required"/>
+      </xsd:complexType>
+      <xsd:complexType name="FieldTypesImageRefFieldType">
+        <xsd:attribute fixed="IMAGEREFERENCE" name="type" type="xsd:string" use="required"/>
+      </xsd:complexType>
+      <xsd:complexType name="MsgData_TypeShape">
+        <xsd:sequence>
+          <xsd:element maxOccurs="unbounded" minOccurs="0" name="Transaction" type="Transaction_TypeShape"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="Transaction_TypeShape">
+        <xsd:all>
+          <xsd:element minOccurs="0" name="ANZ_GETSUP_WRK" type="ANZ_GETSUP_WRKMsgDataRecord_TypeShape"/>
+          <xsd:element name="PSCAMA" type="PSCAMAMsgDataRecord_TypeShape"/>
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="ANZ_GETSUP_WRKMsgDataRecord_TypeShape">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="VNDR_FIELD_C30_C" type="VNDR_FIELD_C30_C_TypeShape"/>
+          <xsd:element minOccurs="0" name="SETID" type="SETID_TypeShape"/>
+          <xsd:element minOccurs="0" name="VENDOR_ID" type="VENDOR_ID_TypeShape"/>
+          <xsd:element minOccurs="0" name="VENDOR_STATUS" type="VENDOR_STATUS_TypeShape"/>
+        </xsd:sequence>
+        <xsd:attribute fixed="R" name="class" type="xsd:string" use="required"/>
+      </xsd:complexType>
+      <xsd:complexType name="VNDR_FIELD_C30_C_TypeShape">
+        <xsd:simpleContent>
+          <xsd:extension base="VNDR_FIELD_C30_C_TypeDef">
+            <xsd:attribute name="IsChanged" type="xsd:string" use="optional"/>
+          </xsd:extension>
+        </xsd:simpleContent>
+      </xsd:complexType>
+      <xsd:complexType name="SETID_TypeShape">
+        <xsd:simpleContent>
+          <xsd:extension base="SETID_TypeDef">
+            <xsd:attribute name="IsChanged" type="xsd:string" use="optional"/>
+          </xsd:extension>
+        </xsd:simpleContent>
+      </xsd:complexType>
+      <xsd:complexType name="VENDOR_ID_TypeShape">
+        <xsd:simpleContent>
+          <xsd:extension base="VENDOR_ID_TypeDef">
+            <xsd:attribute name="IsChanged" type="xsd:string" use="optional"/>
+          </xsd:extension>
+        </xsd:simpleContent>
+      </xsd:complexType>
+      <xsd:complexType name="VENDOR_STATUS_TypeShape">
+        <xsd:simpleContent>
+          <xsd:extension base="VENDOR_STATUS_TypeDef">
+            <xsd:attribute name="IsChanged" type="xsd:string" use="optional"/>
+          </xsd:extension>
+        </xsd:simpleContent>
+      </xsd:complexType>
+      <xsd:simpleType name="VNDR_FIELD_C30_C_TypeDef">
+        <xsd:annotation>
+          <xsd:documentation>User Defined Vendor Field C30 S</xsd:documentation>
+          <xsd:documentation>VNDR_FIELD_C30_C is a character of length 30</xsd:documentation>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:string">
+          <xsd:maxLength value="30"/>
+          <xsd:whiteSpace value="preserve"/>
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="SETID_TypeDef">
+        <xsd:annotation>
+          <xsd:documentation>SetID
+
+Steffi Mathew,22/10/2012
+ANZWR42052
+Adding a label COUNTRY_SETID for IFRS.
+
+Prashant Prakash, 21/12/2010
+ANZWR28452
+Adding a label TARGET_SYSTEM for the SmartStream Extract
+
+Mark Plummer, 31/5/2007
+ANZWR04880
+Resolve IFRS Control page Defects
+
+WT-Lanid : tshivak
+Date : 28-03-2014 
+Description : Project Trinity PS Upgrade 8.9 to 9.2
+Added labels COUNTRY_SETID, TARGET_SYSTEM and ANZ_SETID.</xsd:documentation>
+          <xsd:documentation>SETID is a character of length 5. Allows Uppercase characters including numbers</xsd:documentation>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:string">
+          <xsd:maxLength value="5"/>
+          <xsd:whiteSpace value="preserve"/>
+          <xsd:pattern value="([A-Z]|[0-9]|\p{Z}|\p{P}|\p{Lu})*"/>
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="VENDOR_ID_TypeDef">
+        <xsd:annotation>
+          <xsd:documentation>Vendor Identifier</xsd:documentation>
+          <xsd:documentation>VENDOR_ID is a character of length 10. Allows Uppercase characters including numbers</xsd:documentation>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:string">
+          <xsd:maxLength value="10"/>
+          <xsd:whiteSpace value="preserve"/>
+          <xsd:pattern value="([A-Z]|[0-9]|\p{Z}|\p{P}|\p{Lu})*"/>
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="VENDOR_STATUS_TypeDef">
+        <xsd:annotation>
+          <xsd:documentation>Vendor Status</xsd:documentation>
+          <xsd:documentation>VENDOR_STATUS is a character of length 1. Allows Uppercase characters including numbers</xsd:documentation>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:string">
+          <xsd:maxLength value="1"/>
+          <xsd:whiteSpace value="preserve"/>
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:complexType name="PSCAMAMsgDataRecord_TypeShape">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="LANGUAGE_CD" type="LANGUAGE_CD_TypeShape"/>
+          <xsd:element minOccurs="0" name="AUDIT_ACTN" type="AUDIT_ACTN_TypeShape"/>
+          <xsd:element minOccurs="0" name="BASE_LANGUAGE_CD" type="BASE_LANGUAGE_CD_TypeShape"/>
+          <xsd:element minOccurs="0" name="MSG_SEQ_FLG" type="MSG_SEQ_FLG_TypeShape"/>
+          <xsd:element minOccurs="0" name="PROCESS_INSTANCE" type="PROCESS_INSTANCE_TypeShape"/>
+          <xsd:element minOccurs="0" name="PUBLISH_RULE_ID" type="PUBLISH_RULE_ID_TypeShape"/>
+          <xsd:element minOccurs="0" name="MSGNODENAME" type="MSGNODENAME_TypeShape"/>
+        </xsd:sequence>
+        <xsd:attribute fixed="R" name="class" type="xsd:string" use="required"/>
+      </xsd:complexType>
+      <xsd:complexType name="LANGUAGE_CD_TypeShape">
+        <xsd:simpleContent>
+          <xsd:extension base="LANGUAGE_CD_TypeDef">
+            <xsd:attribute name="IsChanged" type="xsd:string" use="optional"/>
+          </xsd:extension>
+        </xsd:simpleContent>
+      </xsd:complexType>
+      <xsd:complexType name="AUDIT_ACTN_TypeShape">
+        <xsd:simpleContent>
+          <xsd:extension base="AUDIT_ACTN_TypeDef">
+            <xsd:attribute name="IsChanged" type="xsd:string" use="optional"/>
+          </xsd:extension>
+        </xsd:simpleContent>
+      </xsd:complexType>
+      <xsd:complexType name="BASE_LANGUAGE_CD_TypeShape">
+        <xsd:simpleContent>
+          <xsd:extension base="BASE_LANGUAGE_CD_TypeDef">
+            <xsd:attribute name="IsChanged" type="xsd:string" use="optional"/>
+          </xsd:extension>
+        </xsd:simpleContent>
+      </xsd:complexType>
+      <xsd:complexType name="MSG_SEQ_FLG_TypeShape">
+        <xsd:simpleContent>
+          <xsd:extension base="MSG_SEQ_FLG_TypeDef">
+            <xsd:attribute name="IsChanged" type="xsd:string" use="optional"/>
+          </xsd:extension>
+        </xsd:simpleContent>
+      </xsd:complexType>
+      <xsd:complexType name="PROCESS_INSTANCE_TypeShape">
+        <xsd:simpleContent>
+          <xsd:extension base="PROCESS_INSTANCE_TypeDef">
+            <xsd:attribute name="IsChanged" type="xsd:string" use="optional"/>
+          </xsd:extension>
+        </xsd:simpleContent>
+      </xsd:complexType>
+      <xsd:complexType name="PUBLISH_RULE_ID_TypeShape">
+        <xsd:simpleContent>
+          <xsd:extension base="PUBLISH_RULE_ID_TypeDef">
+            <xsd:attribute name="IsChanged" type="xsd:string" use="optional"/>
+          </xsd:extension>
+        </xsd:simpleContent>
+      </xsd:complexType>
+      <xsd:complexType name="MSGNODENAME_TypeShape">
+        <xsd:simpleContent>
+          <xsd:extension base="MSGNODENAME_TypeDef">
+            <xsd:attribute name="IsChanged" type="xsd:string" use="optional"/>
+          </xsd:extension>
+        </xsd:simpleContent>
+      </xsd:complexType>
+      <xsd:simpleType name="LANGUAGE_CD_TypeDef">
+        <xsd:annotation>
+          <xsd:documentation>Language Code</xsd:documentation>
+          <xsd:documentation>LANGUAGE_CD is a character of length 3. Allows Uppercase characters including numbers</xsd:documentation>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:string">
+          <xsd:maxLength value="3"/>
+          <xsd:whiteSpace value="preserve"/>
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="AUDIT_ACTN_TypeDef">
+        <xsd:annotation>
+          <xsd:documentation>Audit Action Code for Application Messages.  This tells the subscriber whether the row has been added, changed, or deleted.</xsd:documentation>
+          <xsd:documentation>AUDIT_ACTN is a character of length 1. Allows Uppercase characters including numbers</xsd:documentation>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:string">
+          <xsd:maxLength value="1"/>
+          <xsd:whiteSpace value="preserve"/>
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="BASE_LANGUAGE_CD_TypeDef">
+        <xsd:annotation>
+          <xsd:documentation>BASE_LANGUAGE_CD is a character of length 3. Allows Uppercase characters including numbers</xsd:documentation>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:string">
+          <xsd:maxLength value="3"/>
+          <xsd:whiteSpace value="preserve"/>
+          <xsd:pattern value="([A-Z]|[0-9]|\p{Z}|\p{P}|\p{Lu})*"/>
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="MSG_SEQ_FLG_TypeDef">
+        <xsd:annotation>
+          <xsd:documentation>MSG_SEQ_FLG is a character of length 1. Allows Uppercase characters including numbers</xsd:documentation>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:string">
+          <xsd:maxLength value="1"/>
+          <xsd:whiteSpace value="preserve"/>
+          <xsd:pattern value="([A-Z]|[0-9]|\p{Z}|\p{P}|\p{Lu})*"/>
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="PROCESS_INSTANCE_TypeDef">
+        <xsd:annotation>
+          <xsd:documentation>Process Instance</xsd:documentation>
+          <xsd:documentation>PROCESS_INSTANCE is a number of length 10 with a decimal position of 0</xsd:documentation>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:integer">
+          <xsd:totalDigits value="10"/>
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="PUBLISH_RULE_ID_TypeDef">
+        <xsd:annotation>
+          <xsd:documentation>Publish Rule ID</xsd:documentation>
+          <xsd:documentation>PUBLISH_RULE_ID is a character of length 30. Allows Uppercase characters including numbers</xsd:documentation>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:string">
+          <xsd:maxLength value="30"/>
+          <xsd:whiteSpace value="preserve"/>
+          <xsd:pattern value="([A-Z]|[0-9]|\p{Z}|\p{P}|\p{Lu})*"/>
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="MSGNODENAME_TypeDef">
+        <xsd:annotation>
+          <xsd:documentation>Application Message Node Name.  Name of the Application Message Node Definition.</xsd:documentation>
+          <xsd:documentation>MSGNODENAME is a character of length 30. Allows Uppercase characters including numbers</xsd:documentation>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:string">
+          <xsd:maxLength value="30"/>
+          <xsd:whiteSpace value="preserve"/>
+          <xsd:pattern value="([A-Z]|[0-9]|\p{Z}|\p{P}|\p{Lu})*"/>
+        </xsd:restriction>
+      </xsd:simpleType>
+    </xsd:schema>
+    <xsd:schema elementFormDefault="qualified" targetNamespace="http://xmlns.oracle.com/Enterprise/Tools/schemas/ANZ_GET_SUP_DETAILS_RES.v1" xmlns="http://xmlns.oracle.com/Enterprise/Tools/schemas/ANZ_GET_SUP_DETAILS_RES.v1" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+      <xsd:element name="ANZ_GET_SUP_DETAILS_RES" type="ANZ_GET_SUP_DETAILS_RES_TypeShape"/>
+      <xsd:complexType name="ANZ_GET_SUP_DETAILS_RES_TypeShape">
+        <xsd:sequence>
+          <xsd:element name="FieldTypes" type="FieldTypes_TypeShape"/>
+          <xsd:element name="MsgData" type="MsgData_TypeShape"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="FieldTypes_TypeShape">
+        <xsd:all>
+          <xsd:element name="ANZ_VENDOR_RES" type="FieldTypesANZ_VENDOR_RES_TypeShape"/>
+          <xsd:element name="PSCAMA" type="FieldTypesPSCAMA_TypeShape"/>
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="FieldTypesANZ_VENDOR_RES_TypeShape">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="SETID" type="FieldTypesCharFieldType"/>
+          <xsd:element minOccurs="0" name="VENDOR_ID" type="FieldTypesCharFieldType"/>
+          <xsd:element minOccurs="0" name="VENDOR_STATUS" type="FieldTypesCharFieldType"/>
+          <xsd:element minOccurs="0" name="VENDOR_NAME_SHORT" type="FieldTypesCharFieldType"/>
+          <xsd:element minOccurs="0" name="NAME1" type="FieldTypesCharFieldType"/>
+          <xsd:element minOccurs="0" name="NAME2" type="FieldTypesCharFieldType"/>
+          <xsd:element minOccurs="0" name="REMIT_ADDR_SEQ_NUM" type="FieldTypesNumberFieldType"/>
+          <xsd:element minOccurs="0" name="PRIM_ADDR_SEQ_NUM" type="FieldTypesNumberFieldType"/>
+          <xsd:element minOccurs="0" name="ADDR_SEQ_NUM_ORDR" type="FieldTypesNumberFieldType"/>
+          <xsd:element minOccurs="0" name="ENTERED_BY" type="FieldTypesCharFieldType"/>
+          <xsd:element name="WTHD_SW" type="FieldTypesCharFieldType"/>
+          <xsd:element name="VAT_SW" type="FieldTypesCharFieldType"/>
+          <xsd:element minOccurs="0" name="DEFAULT_LOC" type="FieldTypesCharFieldType"/>
+          <xsd:element minOccurs="0" name="REMIT_LOC" type="FieldTypesCharFieldType"/>
+          <xsd:element minOccurs="0" name="LAST_ACTIVITY_DT" type="FieldTypesDateFieldType"/>
+          <xsd:element minOccurs="0" name="VNDR_FIELD_C30_A" type="FieldTypesCharFieldType"/>
+          <xsd:element minOccurs="0" name="VNDR_FIELD_C30_B" type="FieldTypesCharFieldType"/>
+          <xsd:element minOccurs="0" name="VNDR_FIELD_C30_C" type="FieldTypesCharFieldType"/>
+          <xsd:element minOccurs="0" name="VNDR_FIELD_C30_D" type="FieldTypesCharFieldType"/>
+          <xsd:element minOccurs="0" name="VNDR_FIELD_C30_E" type="FieldTypesCharFieldType"/>
+          <xsd:element minOccurs="0" name="VNDR_FIELD_C30_F" type="FieldTypesCharFieldType"/>
+          <xsd:element minOccurs="0" name="VNDR_FIELD_C30_G" type="FieldTypesCharFieldType"/>
+          <xsd:element minOccurs="0" name="VNDR_FIELD_C30_H" type="FieldTypesCharFieldType"/>
+          <xsd:element minOccurs="0" name="VNDR_FIELD_C30_I" type="FieldTypesCharFieldType"/>
+          <xsd:element minOccurs="0" name="VNDR_FIELD_C30_J" type="FieldTypesCharFieldType"/>
+        </xsd:sequence>
+        <xsd:attribute fixed="R" name="class" type="xsd:string" use="required"/>
+      </xsd:complexType>
+      <xsd:complexType name="FieldTypesPSCAMA_TypeShape">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="LANGUAGE_CD" type="FieldTypesCharFieldType"/>
+          <xsd:element minOccurs="0" name="AUDIT_ACTN" type="FieldTypesCharFieldType"/>
+          <xsd:element minOccurs="0" name="BASE_LANGUAGE_CD" type="FieldTypesCharFieldType"/>
+          <xsd:element minOccurs="0" name="MSG_SEQ_FLG" type="FieldTypesCharFieldType"/>
+          <xsd:element minOccurs="0" name="PROCESS_INSTANCE" type="FieldTypesNumberFieldType"/>
+          <xsd:element minOccurs="0" name="PUBLISH_RULE_ID" type="FieldTypesCharFieldType"/>
+          <xsd:element minOccurs="0" name="MSGNODENAME" type="FieldTypesCharFieldType"/>
+        </xsd:sequence>
+        <xsd:attribute fixed="R" name="class" type="xsd:string" use="required"/>
+      </xsd:complexType>
+      <xsd:complexType name="FieldTypesCharFieldType">
+        <xsd:attribute fixed="CHAR" name="type" type="xsd:string" use="required"/>
+      </xsd:complexType>
+      <xsd:complexType name="FieldTypesNumberFieldType">
+        <xsd:attribute fixed="NUMBER" name="type" type="xsd:string" use="required"/>
+      </xsd:complexType>
+      <xsd:complexType name="FieldTypesDateFieldType">
+        <xsd:attribute fixed="DATE" name="type" type="xsd:string" use="required"/>
+      </xsd:complexType>
+      <xsd:complexType name="FieldTypesTimeFieldType">
+        <xsd:attribute fixed="TIME" name="type" type="xsd:string" use="required"/>
+      </xsd:complexType>
+      <xsd:complexType name="FieldTypesDateTimeFieldType">
+        <xsd:attribute fixed="DATETIME" name="type" type="xsd:string" use="required"/>
+      </xsd:complexType>
+      <xsd:complexType name="FieldTypesImageRefFieldType">
+        <xsd:attribute fixed="IMAGEREFERENCE" name="type" type="xsd:string" use="required"/>
+      </xsd:complexType>
+      <xsd:complexType name="MsgData_TypeShape">
+        <xsd:sequence>
+          <xsd:element maxOccurs="unbounded" minOccurs="0" name="Transaction" type="Transaction_TypeShape"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="Transaction_TypeShape">
+        <xsd:all>
+          <xsd:element minOccurs="0" name="ANZ_VENDOR_RES" type="ANZ_VENDOR_RESMsgDataRecord_TypeShape"/>
+          <xsd:element name="PSCAMA" type="PSCAMAMsgDataRecord_TypeShape"/>
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="ANZ_VENDOR_RESMsgDataRecord_TypeShape">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="SETID" type="SETID_TypeShape"/>
+          <xsd:element minOccurs="0" name="VENDOR_ID" type="VENDOR_ID_TypeShape"/>
+          <xsd:element minOccurs="0" name="VENDOR_STATUS" type="VENDOR_STATUS_TypeShape"/>
+          <xsd:element minOccurs="0" name="VENDOR_NAME_SHORT" type="VENDOR_NAME_SHORT_TypeShape"/>
+          <xsd:element minOccurs="0" name="NAME1" type="NAME1_TypeShape"/>
+          <xsd:element minOccurs="0" name="NAME2" type="NAME2_TypeShape"/>
+          <xsd:element minOccurs="0" name="REMIT_ADDR_SEQ_NUM" type="REMIT_ADDR_SEQ_NUM_TypeShape"/>
+          <xsd:element minOccurs="0" name="PRIM_ADDR_SEQ_NUM" type="PRIM_ADDR_SEQ_NUM_TypeShape"/>
+          <xsd:element minOccurs="0" name="ADDR_SEQ_NUM_ORDR" type="ADDR_SEQ_NUM_ORDR_TypeShape"/>
+          <xsd:element minOccurs="0" name="ENTERED_BY" type="ENTERED_BY_TypeShape"/>
+          <xsd:element name="WTHD_SW" type="WTHD_SW_TypeShape"/>
+          <xsd:element name="VAT_SW" type="VAT_SW_TypeShape"/>
+          <xsd:element minOccurs="0" name="DEFAULT_LOC" type="DEFAULT_LOC_TypeShape"/>
+          <xsd:element minOccurs="0" name="REMIT_LOC" type="REMIT_LOC_TypeShape"/>
+          <xsd:element minOccurs="0" name="LAST_ACTIVITY_DT" type="LAST_ACTIVITY_DT_TypeShape"/>
+          <xsd:element minOccurs="0" name="VNDR_FIELD_C30_A" type="VNDR_FIELD_C30_A_TypeShape"/>
+          <xsd:element minOccurs="0" name="VNDR_FIELD_C30_B" type="VNDR_FIELD_C30_B_TypeShape"/>
+          <xsd:element minOccurs="0" name="VNDR_FIELD_C30_C" type="VNDR_FIELD_C30_C_TypeShape"/>
+          <xsd:element minOccurs="0" name="VNDR_FIELD_C30_D" type="VNDR_FIELD_C30_D_TypeShape"/>
+          <xsd:element minOccurs="0" name="VNDR_FIELD_C30_E" type="VNDR_FIELD_C30_E_TypeShape"/>
+          <xsd:element minOccurs="0" name="VNDR_FIELD_C30_F" type="VNDR_FIELD_C30_F_TypeShape"/>
+          <xsd:element minOccurs="0" name="VNDR_FIELD_C30_G" type="VNDR_FIELD_C30_G_TypeShape"/>
+          <xsd:element minOccurs="0" name="VNDR_FIELD_C30_H" type="VNDR_FIELD_C30_H_TypeShape"/>
+          <xsd:element minOccurs="0" name="VNDR_FIELD_C30_I" type="VNDR_FIELD_C30_I_TypeShape"/>
+          <xsd:element minOccurs="0" name="VNDR_FIELD_C30_J" type="VNDR_FIELD_C30_J_TypeShape"/>
+        </xsd:sequence>
+        <xsd:attribute fixed="R" name="class" type="xsd:string" use="required"/>
+      </xsd:complexType>
+      <xsd:complexType name="SETID_TypeShape">
+        <xsd:simpleContent>
+          <xsd:extension base="SETID_TypeDef">
+            <xsd:attribute name="IsChanged" type="xsd:string" use="optional"/>
+          </xsd:extension>
+        </xsd:simpleContent>
+      </xsd:complexType>
+      <xsd:complexType name="VENDOR_ID_TypeShape">
+        <xsd:simpleContent>
+          <xsd:extension base="VENDOR_ID_TypeDef">
+            <xsd:attribute name="IsChanged" type="xsd:string" use="optional"/>
+          </xsd:extension>
+        </xsd:simpleContent>
+      </xsd:complexType>
+      <xsd:complexType name="VENDOR_STATUS_TypeShape">
+        <xsd:simpleContent>
+          <xsd:extension base="VENDOR_STATUS_TypeDef">
+            <xsd:attribute name="IsChanged" type="xsd:string" use="optional"/>
+          </xsd:extension>
+        </xsd:simpleContent>
+      </xsd:complexType>
+      <xsd:complexType name="VENDOR_NAME_SHORT_TypeShape">
+        <xsd:simpleContent>
+          <xsd:extension base="VENDOR_NAME_SHORT_TypeDef">
+            <xsd:attribute name="IsChanged" type="xsd:string" use="optional"/>
+          </xsd:extension>
+        </xsd:simpleContent>
+      </xsd:complexType>
+      <xsd:complexType name="NAME1_TypeShape">
+        <xsd:simpleContent>
+          <xsd:extension base="NAME1_TypeDef">
+            <xsd:attribute name="IsChanged" type="xsd:string" use="optional"/>
+          </xsd:extension>
+        </xsd:simpleContent>
+      </xsd:complexType>
+      <xsd:complexType name="NAME2_TypeShape">
+        <xsd:simpleContent>
+          <xsd:extension base="NAME2_TypeDef">
+            <xsd:attribute name="IsChanged" type="xsd:string" use="optional"/>
+          </xsd:extension>
+        </xsd:simpleContent>
+      </xsd:complexType>
+      <xsd:complexType name="REMIT_ADDR_SEQ_NUM_TypeShape">
+        <xsd:simpleContent>
+          <xsd:extension base="REMIT_ADDR_SEQ_NUM_TypeDef">
+            <xsd:attribute name="IsChanged" type="xsd:string" use="optional"/>
+          </xsd:extension>
+        </xsd:simpleContent>
+      </xsd:complexType>
+      <xsd:complexType name="PRIM_ADDR_SEQ_NUM_TypeShape">
+        <xsd:simpleContent>
+          <xsd:extension base="PRIM_ADDR_SEQ_NUM_TypeDef">
+            <xsd:attribute name="IsChanged" type="xsd:string" use="optional"/>
+          </xsd:extension>
+        </xsd:simpleContent>
+      </xsd:complexType>
+      <xsd:complexType name="ADDR_SEQ_NUM_ORDR_TypeShape">
+        <xsd:simpleContent>
+          <xsd:extension base="ADDR_SEQ_NUM_ORDR_TypeDef">
+            <xsd:attribute name="IsChanged" type="xsd:string" use="optional"/>
+          </xsd:extension>
+        </xsd:simpleContent>
+      </xsd:complexType>
+      <xsd:complexType name="ENTERED_BY_TypeShape">
+        <xsd:simpleContent>
+          <xsd:extension base="ENTERED_BY_TypeDef">
+            <xsd:attribute name="IsChanged" type="xsd:string" use="optional"/>
+          </xsd:extension>
+        </xsd:simpleContent>
+      </xsd:complexType>
+      <xsd:complexType name="WTHD_SW_TypeShape">
+        <xsd:simpleContent>
+          <xsd:extension base="WTHD_SW_TypeDef">
+            <xsd:attribute name="IsChanged" type="xsd:string" use="optional"/>
+          </xsd:extension>
+        </xsd:simpleContent>
+      </xsd:complexType>
+      <xsd:complexType name="VAT_SW_TypeShape">
+        <xsd:simpleContent>
+          <xsd:extension base="VAT_SW_TypeDef">
+            <xsd:attribute name="IsChanged" type="xsd:string" use="optional"/>
+          </xsd:extension>
+        </xsd:simpleContent>
+      </xsd:complexType>
+      <xsd:complexType name="DEFAULT_LOC_TypeShape">
+        <xsd:simpleContent>
+          <xsd:extension base="DEFAULT_LOC_TypeDef">
+            <xsd:attribute name="IsChanged" type="xsd:string" use="optional"/>
+          </xsd:extension>
+        </xsd:simpleContent>
+      </xsd:complexType>
+      <xsd:complexType name="REMIT_LOC_TypeShape">
+        <xsd:simpleContent>
+          <xsd:extension base="REMIT_LOC_TypeDef">
+            <xsd:attribute name="IsChanged" type="xsd:string" use="optional"/>
+          </xsd:extension>
+        </xsd:simpleContent>
+      </xsd:complexType>
+      <xsd:complexType name="LAST_ACTIVITY_DT_TypeShape">
+        <xsd:simpleContent>
+          <xsd:extension base="LAST_ACTIVITY_DT_TypeDef">
+            <xsd:attribute name="IsChanged" type="xsd:string" use="optional"/>
+          </xsd:extension>
+        </xsd:simpleContent>
+      </xsd:complexType>
+      <xsd:complexType name="VNDR_FIELD_C30_A_TypeShape">
+        <xsd:simpleContent>
+          <xsd:extension base="VNDR_FIELD_C30_A_TypeDef">
+            <xsd:attribute name="IsChanged" type="xsd:string" use="optional"/>
+          </xsd:extension>
+        </xsd:simpleContent>
+      </xsd:complexType>
+      <xsd:complexType name="VNDR_FIELD_C30_B_TypeShape">
+        <xsd:simpleContent>
+          <xsd:extension base="VNDR_FIELD_C30_B_TypeDef">
+            <xsd:attribute name="IsChanged" type="xsd:string" use="optional"/>
+          </xsd:extension>
+        </xsd:simpleContent>
+      </xsd:complexType>
+      <xsd:complexType name="VNDR_FIELD_C30_C_TypeShape">
+        <xsd:simpleContent>
+          <xsd:extension base="VNDR_FIELD_C30_C_TypeDef">
+            <xsd:attribute name="IsChanged" type="xsd:string" use="optional"/>
+          </xsd:extension>
+        </xsd:simpleContent>
+      </xsd:complexType>
+      <xsd:complexType name="VNDR_FIELD_C30_D_TypeShape">
+        <xsd:simpleContent>
+          <xsd:extension base="VNDR_FIELD_C30_D_TypeDef">
+            <xsd:attribute name="IsChanged" type="xsd:string" use="optional"/>
+          </xsd:extension>
+        </xsd:simpleContent>
+      </xsd:complexType>
+      <xsd:complexType name="VNDR_FIELD_C30_E_TypeShape">
+        <xsd:simpleContent>
+          <xsd:extension base="VNDR_FIELD_C30_E_TypeDef">
+            <xsd:attribute name="IsChanged" type="xsd:string" use="optional"/>
+          </xsd:extension>
+        </xsd:simpleContent>
+      </xsd:complexType>
+      <xsd:complexType name="VNDR_FIELD_C30_F_TypeShape">
+        <xsd:simpleContent>
+          <xsd:extension base="VNDR_FIELD_C30_F_TypeDef">
+            <xsd:attribute name="IsChanged" type="xsd:string" use="optional"/>
+          </xsd:extension>
+        </xsd:simpleContent>
+      </xsd:complexType>
+      <xsd:complexType name="VNDR_FIELD_C30_G_TypeShape">
+        <xsd:simpleContent>
+          <xsd:extension base="VNDR_FIELD_C30_G_TypeDef">
+            <xsd:attribute name="IsChanged" type="xsd:string" use="optional"/>
+          </xsd:extension>
+        </xsd:simpleContent>
+      </xsd:complexType>
+      <xsd:complexType name="VNDR_FIELD_C30_H_TypeShape">
+        <xsd:simpleContent>
+          <xsd:extension base="VNDR_FIELD_C30_H_TypeDef">
+            <xsd:attribute name="IsChanged" type="xsd:string" use="optional"/>
+          </xsd:extension>
+        </xsd:simpleContent>
+      </xsd:complexType>
+      <xsd:complexType name="VNDR_FIELD_C30_I_TypeShape">
+        <xsd:simpleContent>
+          <xsd:extension base="VNDR_FIELD_C30_I_TypeDef">
+            <xsd:attribute name="IsChanged" type="xsd:string" use="optional"/>
+          </xsd:extension>
+        </xsd:simpleContent>
+      </xsd:complexType>
+      <xsd:complexType name="VNDR_FIELD_C30_J_TypeShape">
+        <xsd:simpleContent>
+          <xsd:extension base="VNDR_FIELD_C30_J_TypeDef">
+            <xsd:attribute name="IsChanged" type="xsd:string" use="optional"/>
+          </xsd:extension>
+        </xsd:simpleContent>
+      </xsd:complexType>
+      <xsd:simpleType name="SETID_TypeDef">
+        <xsd:annotation>
+          <xsd:documentation>SetID
+
+Steffi Mathew,22/10/2012
+ANZWR42052
+Adding a label COUNTRY_SETID for IFRS.
+
+Prashant Prakash, 21/12/2010
+ANZWR28452
+Adding a label TARGET_SYSTEM for the SmartStream Extract
+
+Mark Plummer, 31/5/2007
+ANZWR04880
+Resolve IFRS Control page Defects
+
+WT-Lanid : tshivak
+Date : 28-03-2014 
+Description : Project Trinity PS Upgrade 8.9 to 9.2
+Added labels COUNTRY_SETID, TARGET_SYSTEM and ANZ_SETID.</xsd:documentation>
+          <xsd:documentation>SETID is a character of length 5. Allows Uppercase characters including numbers</xsd:documentation>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:string">
+          <xsd:maxLength value="5"/>
+          <xsd:whiteSpace value="preserve"/>
+          <xsd:pattern value="([A-Z]|[0-9]|\p{Z}|\p{P}|\p{Lu})*"/>
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="VENDOR_ID_TypeDef">
+        <xsd:annotation>
+          <xsd:documentation>Vendor Identifier</xsd:documentation>
+          <xsd:documentation>VENDOR_ID is a character of length 10. Allows Uppercase characters including numbers</xsd:documentation>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:string">
+          <xsd:maxLength value="10"/>
+          <xsd:whiteSpace value="preserve"/>
+          <xsd:pattern value="([A-Z]|[0-9]|\p{Z}|\p{P}|\p{Lu})*"/>
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="VENDOR_STATUS_TypeDef">
+        <xsd:annotation>
+          <xsd:documentation>Vendor Status</xsd:documentation>
+          <xsd:documentation>VENDOR_STATUS is a character of length 1. Allows Uppercase characters including numbers</xsd:documentation>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:string">
+          <xsd:maxLength value="1"/>
+          <xsd:whiteSpace value="preserve"/>
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="VENDOR_NAME_SHORT_TypeDef">
+        <xsd:annotation>
+          <xsd:documentation>Short Vendor Name</xsd:documentation>
+          <xsd:documentation>VENDOR_NAME_SHORT is a character of length 14. Allows Uppercase characters including numbers</xsd:documentation>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:string">
+          <xsd:maxLength value="14"/>
+          <xsd:whiteSpace value="preserve"/>
+          <xsd:pattern value="([A-Z]|[0-9]|\p{Z}|\p{P}|\p{Lu})*"/>
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="NAME1_TypeDef">
+        <xsd:annotation>
+          <xsd:documentation>Name 1</xsd:documentation>
+          <xsd:documentation>NAME1 is a character of length 40</xsd:documentation>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:string">
+          <xsd:maxLength value="40"/>
+          <xsd:whiteSpace value="preserve"/>
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="NAME2_TypeDef">
+        <xsd:annotation>
+          <xsd:documentation>Name 2</xsd:documentation>
+          <xsd:documentation>NAME2 is a character of length 40</xsd:documentation>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:string">
+          <xsd:maxLength value="40"/>
+          <xsd:whiteSpace value="preserve"/>
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="REMIT_ADDR_SEQ_NUM_TypeDef">
+        <xsd:annotation>
+          <xsd:documentation>Remitting Location</xsd:documentation>
+          <xsd:documentation>REMIT_ADDR_SEQ_NUM is a number of length 5 with a decimal position of 0</xsd:documentation>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:integer">
+          <xsd:totalDigits value="5"/>
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="PRIM_ADDR_SEQ_NUM_TypeDef">
+        <xsd:annotation>
+          <xsd:documentation>Invoicing Location            </xsd:documentation>
+          <xsd:documentation>PRIM_ADDR_SEQ_NUM is a number of length 5 with a decimal position of 0</xsd:documentation>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:integer">
+          <xsd:totalDigits value="5"/>
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="ADDR_SEQ_NUM_ORDR_TypeDef">
+        <xsd:annotation>
+          <xsd:documentation>Ordering Location             </xsd:documentation>
+          <xsd:documentation>ADDR_SEQ_NUM_ORDR is a number of length 5 with a decimal position of 0</xsd:documentation>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:integer">
+          <xsd:totalDigits value="5"/>
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="ENTERED_BY_TypeDef">
+        <xsd:annotation>
+          <xsd:documentation>Entered by Ashish Kumar, 20/04/2007 
+ANZTD01151 Added a new label " ANZ_IPF_ENTERED_BY"
+
+----------------------------------------------------------------------------------------------
+WT-RSHUBHA,04/10/2013
+Description : Project Trinity PS Upgrade 8.9 to 9.2
+1.Added the description:
+
+2.Added new Label "ANZ_IPF_ENTERED_BY"
+------------------------------------------------------------------------------------------------</xsd:documentation>
+          <xsd:documentation>ENTERED_BY is a character of length 30</xsd:documentation>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:string">
+          <xsd:maxLength value="30"/>
+          <xsd:whiteSpace value="preserve"/>
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="WTHD_SW_TypeDef">
+        <xsd:annotation>
+          <xsd:documentation>Withholding Applicable Flag</xsd:documentation>
+          <xsd:documentation>WTHD_SW is a character of length 1. Allows Uppercase characters including numbers</xsd:documentation>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:string">
+          <xsd:enumeration value="B"/>
+          <xsd:enumeration value="G"/>
+          <xsd:enumeration value="T"/>
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="VAT_SW_TypeDef">
+        <xsd:annotation>
+          <xsd:documentation>Display VAT Flag              </xsd:documentation>
+          <xsd:documentation>VAT_SW is a character of length 1. Allows Uppercase characters including numbers</xsd:documentation>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:string">
+          <xsd:enumeration value="H"/>
+          <xsd:enumeration value="N"/>
+          <xsd:enumeration value="Y"/>
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="DEFAULT_LOC_TypeDef">
+        <xsd:annotation>
+          <xsd:documentation>Default Location              </xsd:documentation>
+          <xsd:documentation>DEFAULT_LOC is a character of length 10. Allows Uppercase characters including numbers</xsd:documentation>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:string">
+          <xsd:maxLength value="10"/>
+          <xsd:whiteSpace value="preserve"/>
+          <xsd:pattern value="([A-Z]|[0-9]|\p{Z}|\p{P}|\p{Lu})*"/>
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="REMIT_LOC_TypeDef">
+        <xsd:annotation>
+          <xsd:documentation>Remit to Location             </xsd:documentation>
+          <xsd:documentation>REMIT_LOC is a character of length 10. Allows Uppercase characters including numbers</xsd:documentation>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:string">
+          <xsd:maxLength value="10"/>
+          <xsd:whiteSpace value="preserve"/>
+          <xsd:pattern value="([A-Z]|[0-9]|\p{Z}|\p{P}|\p{Lu})*"/>
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="LAST_ACTIVITY_DT_TypeDef">
+        <xsd:annotation>
+          <xsd:documentation>Last Activity Date            </xsd:documentation>
+          <xsd:documentation>LAST_ACTIVITY_DT is a date.</xsd:documentation>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:date">
+          <xsd:pattern value="(\d{4}-\d{2}-\d{2})"/>
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="VNDR_FIELD_C30_A_TypeDef">
+        <xsd:annotation>
+          <xsd:documentation>User Defined Vendor Field C30 A</xsd:documentation>
+          <xsd:documentation>VNDR_FIELD_C30_A is a character of length 30</xsd:documentation>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:string">
+          <xsd:maxLength value="30"/>
+          <xsd:whiteSpace value="preserve"/>
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="VNDR_FIELD_C30_B_TypeDef">
+        <xsd:annotation>
+          <xsd:documentation>User Defined Vendor Field C30 B</xsd:documentation>
+          <xsd:documentation>VNDR_FIELD_C30_B is a character of length 30</xsd:documentation>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:string">
+          <xsd:maxLength value="30"/>
+          <xsd:whiteSpace value="preserve"/>
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="VNDR_FIELD_C30_C_TypeDef">
+        <xsd:annotation>
+          <xsd:documentation>User Defined Vendor Field C30 S</xsd:documentation>
+          <xsd:documentation>VNDR_FIELD_C30_C is a character of length 30</xsd:documentation>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:string">
+          <xsd:maxLength value="30"/>
+          <xsd:whiteSpace value="preserve"/>
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="VNDR_FIELD_C30_D_TypeDef">
+        <xsd:annotation>
+          <xsd:documentation>User Defined Vendor Field C30 D</xsd:documentation>
+          <xsd:documentation>VNDR_FIELD_C30_D is a character of length 30</xsd:documentation>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:string">
+          <xsd:maxLength value="30"/>
+          <xsd:whiteSpace value="preserve"/>
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="VNDR_FIELD_C30_E_TypeDef">
+        <xsd:annotation>
+          <xsd:documentation>User Defined Vendor Field C30 E</xsd:documentation>
+          <xsd:documentation>VNDR_FIELD_C30_E is a character of length 30. Allows Uppercase characters including numbers</xsd:documentation>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:string">
+          <xsd:maxLength value="30"/>
+          <xsd:whiteSpace value="preserve"/>
+          <xsd:pattern value="([A-Z]|[0-9]|\p{Z}|\p{P}|\p{Lu})*"/>
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="VNDR_FIELD_C30_F_TypeDef">
+        <xsd:annotation>
+          <xsd:documentation>User Defined Vendor Field C30 F</xsd:documentation>
+          <xsd:documentation>VNDR_FIELD_C30_F is a character of length 30. Allows Uppercase characters including numbers</xsd:documentation>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:string">
+          <xsd:maxLength value="30"/>
+          <xsd:whiteSpace value="preserve"/>
+          <xsd:pattern value="([A-Z]|[0-9]|\p{Z}|\p{P}|\p{Lu})*"/>
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="VNDR_FIELD_C30_G_TypeDef">
+        <xsd:annotation>
+          <xsd:documentation>User Defined Vendor Field C30 G</xsd:documentation>
+          <xsd:documentation>VNDR_FIELD_C30_G is a character of length 30. Allows Uppercase characters including numbers</xsd:documentation>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:string">
+          <xsd:maxLength value="30"/>
+          <xsd:whiteSpace value="preserve"/>
+          <xsd:pattern value="([A-Z]|[0-9]|\p{Z}|\p{P}|\p{Lu})*"/>
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="VNDR_FIELD_C30_H_TypeDef">
+        <xsd:annotation>
+          <xsd:documentation>User Defined Vendor Field C30 H</xsd:documentation>
+          <xsd:documentation>VNDR_FIELD_C30_H is a character of length 30. Allows Uppercase characters including numbers</xsd:documentation>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:string">
+          <xsd:maxLength value="30"/>
+          <xsd:whiteSpace value="preserve"/>
+          <xsd:pattern value="([A-Z]|[0-9]|\p{Z}|\p{P}|\p{Lu})*"/>
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="VNDR_FIELD_C30_I_TypeDef">
+        <xsd:annotation>
+          <xsd:documentation>User Defined Vendor Field C30 I</xsd:documentation>
+          <xsd:documentation>VNDR_FIELD_C30_I is a character of length 30</xsd:documentation>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:string">
+          <xsd:maxLength value="30"/>
+          <xsd:whiteSpace value="preserve"/>
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="VNDR_FIELD_C30_J_TypeDef">
+        <xsd:annotation>
+          <xsd:documentation>User Defined Vendor Field C30 J</xsd:documentation>
+          <xsd:documentation>VNDR_FIELD_C30_J is a character of length 30</xsd:documentation>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:string">
+          <xsd:maxLength value="30"/>
+          <xsd:whiteSpace value="preserve"/>
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:complexType name="PSCAMAMsgDataRecord_TypeShape">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="LANGUAGE_CD" type="LANGUAGE_CD_TypeShape"/>
+          <xsd:element minOccurs="0" name="AUDIT_ACTN" type="AUDIT_ACTN_TypeShape"/>
+          <xsd:element minOccurs="0" name="BASE_LANGUAGE_CD" type="BASE_LANGUAGE_CD_TypeShape"/>
+          <xsd:element minOccurs="0" name="MSG_SEQ_FLG" type="MSG_SEQ_FLG_TypeShape"/>
+          <xsd:element minOccurs="0" name="PROCESS_INSTANCE" type="PROCESS_INSTANCE_TypeShape"/>
+          <xsd:element minOccurs="0" name="PUBLISH_RULE_ID" type="PUBLISH_RULE_ID_TypeShape"/>
+          <xsd:element minOccurs="0" name="MSGNODENAME" type="MSGNODENAME_TypeShape"/>
+        </xsd:sequence>
+        <xsd:attribute fixed="R" name="class" type="xsd:string" use="required"/>
+      </xsd:complexType>
+      <xsd:complexType name="LANGUAGE_CD_TypeShape">
+        <xsd:simpleContent>
+          <xsd:extension base="LANGUAGE_CD_TypeDef">
+            <xsd:attribute name="IsChanged" type="xsd:string" use="optional"/>
+          </xsd:extension>
+        </xsd:simpleContent>
+      </xsd:complexType>
+      <xsd:complexType name="AUDIT_ACTN_TypeShape">
+        <xsd:simpleContent>
+          <xsd:extension base="AUDIT_ACTN_TypeDef">
+            <xsd:attribute name="IsChanged" type="xsd:string" use="optional"/>
+          </xsd:extension>
+        </xsd:simpleContent>
+      </xsd:complexType>
+      <xsd:complexType name="BASE_LANGUAGE_CD_TypeShape">
+        <xsd:simpleContent>
+          <xsd:extension base="BASE_LANGUAGE_CD_TypeDef">
+            <xsd:attribute name="IsChanged" type="xsd:string" use="optional"/>
+          </xsd:extension>
+        </xsd:simpleContent>
+      </xsd:complexType>
+      <xsd:complexType name="MSG_SEQ_FLG_TypeShape">
+        <xsd:simpleContent>
+          <xsd:extension base="MSG_SEQ_FLG_TypeDef">
+            <xsd:attribute name="IsChanged" type="xsd:string" use="optional"/>
+          </xsd:extension>
+        </xsd:simpleContent>
+      </xsd:complexType>
+      <xsd:complexType name="PROCESS_INSTANCE_TypeShape">
+        <xsd:simpleContent>
+          <xsd:extension base="PROCESS_INSTANCE_TypeDef">
+            <xsd:attribute name="IsChanged" type="xsd:string" use="optional"/>
+          </xsd:extension>
+        </xsd:simpleContent>
+      </xsd:complexType>
+      <xsd:complexType name="PUBLISH_RULE_ID_TypeShape">
+        <xsd:simpleContent>
+          <xsd:extension base="PUBLISH_RULE_ID_TypeDef">
+            <xsd:attribute name="IsChanged" type="xsd:string" use="optional"/>
+          </xsd:extension>
+        </xsd:simpleContent>
+      </xsd:complexType>
+      <xsd:complexType name="MSGNODENAME_TypeShape">
+        <xsd:simpleContent>
+          <xsd:extension base="MSGNODENAME_TypeDef">
+            <xsd:attribute name="IsChanged" type="xsd:string" use="optional"/>
+          </xsd:extension>
+        </xsd:simpleContent>
+      </xsd:complexType>
+      <xsd:simpleType name="LANGUAGE_CD_TypeDef">
+        <xsd:annotation>
+          <xsd:documentation>Language Code</xsd:documentation>
+          <xsd:documentation>LANGUAGE_CD is a character of length 3. Allows Uppercase characters including numbers</xsd:documentation>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:string">
+          <xsd:maxLength value="3"/>
+          <xsd:whiteSpace value="preserve"/>
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="AUDIT_ACTN_TypeDef">
+        <xsd:annotation>
+          <xsd:documentation>Audit Action Code for Application Messages.  This tells the subscriber whether the row has been added, changed, or deleted.</xsd:documentation>
+          <xsd:documentation>AUDIT_ACTN is a character of length 1. Allows Uppercase characters including numbers</xsd:documentation>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:string">
+          <xsd:maxLength value="1"/>
+          <xsd:whiteSpace value="preserve"/>
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="BASE_LANGUAGE_CD_TypeDef">
+        <xsd:annotation>
+          <xsd:documentation>BASE_LANGUAGE_CD is a character of length 3. Allows Uppercase characters including numbers</xsd:documentation>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:string">
+          <xsd:maxLength value="3"/>
+          <xsd:whiteSpace value="preserve"/>
+          <xsd:pattern value="([A-Z]|[0-9]|\p{Z}|\p{P}|\p{Lu})*"/>
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="MSG_SEQ_FLG_TypeDef">
+        <xsd:annotation>
+          <xsd:documentation>MSG_SEQ_FLG is a character of length 1. Allows Uppercase characters including numbers</xsd:documentation>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:string">
+          <xsd:maxLength value="1"/>
+          <xsd:whiteSpace value="preserve"/>
+          <xsd:pattern value="([A-Z]|[0-9]|\p{Z}|\p{P}|\p{Lu})*"/>
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="PROCESS_INSTANCE_TypeDef">
+        <xsd:annotation>
+          <xsd:documentation>Process Instance</xsd:documentation>
+          <xsd:documentation>PROCESS_INSTANCE is a number of length 10 with a decimal position of 0</xsd:documentation>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:integer">
+          <xsd:totalDigits value="10"/>
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="PUBLISH_RULE_ID_TypeDef">
+        <xsd:annotation>
+          <xsd:documentation>Publish Rule ID</xsd:documentation>
+          <xsd:documentation>PUBLISH_RULE_ID is a character of length 30. Allows Uppercase characters including numbers</xsd:documentation>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:string">
+          <xsd:maxLength value="30"/>
+          <xsd:whiteSpace value="preserve"/>
+          <xsd:pattern value="([A-Z]|[0-9]|\p{Z}|\p{P}|\p{Lu})*"/>
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="MSGNODENAME_TypeDef">
+        <xsd:annotation>
+          <xsd:documentation>Application Message Node Name.  Name of the Application Message Node Definition.</xsd:documentation>
+          <xsd:documentation>MSGNODENAME is a character of length 30. Allows Uppercase characters including numbers</xsd:documentation>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:string">
+          <xsd:maxLength value="30"/>
+          <xsd:whiteSpace value="preserve"/>
+          <xsd:pattern value="([A-Z]|[0-9]|\p{Z}|\p{P}|\p{Lu})*"/>
+        </xsd:restriction>
+      </xsd:simpleType>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="ANZ_GET_SUP_DETAILS_REQ.v1">
+    <wsdl:documentation>ANZ Get Supplier from ACM Req</wsdl:documentation>
+    <wsdl:part element="ANZ_GET_SUP_DETAILS_REQ.v1:ANZ_GET_SUP_DETAILS_REQ" name="parameter"/>
+  </wsdl:message>
+  <wsdl:message name="ANZ_GET_SUP_DETAILS_RES.v1">
+    <wsdl:documentation>ANZ Get Supplier from ACM Res</wsdl:documentation>
+    <wsdl:part element="ANZ_GET_SUP_DETAILS_RES.v1:ANZ_GET_SUP_DETAILS_RES" name="parameter"/>
+  </wsdl:message>
+  <wsdl:portType name="ANZ_GET_SUP_DETAILS_PortType">
+    <wsdl:operation name="ANZ_GET_SUP_DETAILS_G">
+      <wsdl:documentation>Get Supplier Details</wsdl:documentation>
+      <wsdl:input message="tns:ANZ_GET_SUP_DETAILS_REQ.v1" name="ANZ_GET_SUP_DETAILS_REQ.v1"/>
+      <wsdl:output message="tns:ANZ_GET_SUP_DETAILS_RES.v1" name="ANZ_GET_SUP_DETAILS_RES.v1"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ANZ_GET_SUP_DETAILS_Binding" type="tns:ANZ_GET_SUP_DETAILS_PortType">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="ANZ_GET_SUP_DETAILS_G">
+      <soap:operation soapAction="ANZ_GET_SUP_DETAILS_G.v1" style="document"/>
+      <wsp:Policy wsu:Id="UsernameTokenSecurityPolicyPasswordRequired" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">
+        <wsp:ExactlyOne>
+          <wsp:All>
+            <wsse:SecurityToken wsp:Usage="wsp:Required" xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd">
+              <wsse:TokenType>wsse:UserNameToken</wsse:TokenType>
+              <Claims>
+                <SubjectName MatchType="wsse:Exact"/>
+                <UsePassword wsp:Usage="wsp:Required"/>
+              </Claims>
+            </wsse:SecurityToken>
+          </wsp:All>
+        </wsp:ExactlyOne>
+      </wsp:Policy>
+      <wsdl:input name="ANZ_GET_SUP_DETAILS_REQ.v1">
+        <soap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="ANZ_GET_SUP_DETAILS_RES.v1">
+        <soap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ANZ_GET_SUP_DETAILS">
+    <wsdl:documentation>ANZ Get Supplier Details</wsdl:documentation>
+    <wsdl:port binding="tns:ANZ_GET_SUP_DETAILS_Binding" name="ANZ_GET_SUP_DETAILS_Port">
+      <soap:address location="http://gbfsint.peoplesoft.service.dev:8100/PSIGW/PeopleSoftServiceListeningConnector"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
