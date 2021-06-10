@@ -1,0 +1,268 @@
+<***********************************************************************************
+ Date        Initials  Reference #        Description  
+ 01/01/2011  SM        XMLP Report        Business Unit List 
+***********************************************************************************>
+
+import PSXP_RPTDEFNMANAGER:*;
+
+Local PSXP_RPTDEFNMANAGER:ReportDefn &oRptDefn;
+Local Record &rcdQryPrompts, &rcdQryRunParms;
+Local SQL &sqlSelectQryParms;
+Local number &i;
+Local ApiObject &PSMessages;
+Local number &MsgSetNbr, &MsgNbr;
+Local boolean &bResult;
+
+AP_XMLP_RPT_AET.REPORT_DEFN_ID = "APX0010";
+
+&oRptDefn = create PSXP_RPTDEFNMANAGER:ReportDefn(AP_XMLP_RPT_AET.REPORT_DEFN_ID);
+&oRptDefn.Get();
+
+If %OutDestType = 2 Then
+   &oRptDefn.OutDestination = %FilePath;
+End-If;
+
+
+&rcdQryPrompts = &oRptDefn.GetPSQueryPromptRecord();
+
+If Not &rcdQryPrompts = Null Then
+   
+   &rcdQryRunParms = CreateRecord(Record.RUN_CNTL_AP);
+   &sqlSelectQryParms = CreateSQL("%Selectall(:1) WHERE OPRID = :2 AND RUN_CNTL_ID = :3");
+   &sqlSelectQryParms.Execute(&rcdQryRunParms, %OperatorId, AP_XMLP_RPT_AET.RUN_CNTL_ID);
+   While &sqlSelectQryParms.Fetch(&rcdQryRunParms)
+      For &i = 1 To &rcdQryPrompts.FieldCount
+         &FieldValue = &rcdQryPrompts.GetField(&i).Name;
+         &rcdQryPrompts.GetField(@("Field." | &FieldValue)).Value = &rcdQryRunParms.GetField(@("Field." | &FieldValue)).Value;
+      End-For;
+      
+   End-While;
+   
+   &sqlSelectQryParms.Close();
+   
+   
+   &oRptDefn.SetPSQueryPromptRecord(&rcdQryPrompts);
+End-If;
+
+&oRptDefn.ProcessReport(AP_XMLP_RPT_AET.TMPLDEFN_ID, AP_XMLP_RPT_AET.LANGUAGE_CD, AP_XMLP_RPT_AET.ASOFDATE, &oRptDefn.GetOutDestFormatString(%OutDestFormat));
+
+If %OutDestType = 6 Then
+   &oRptDefn.Publish("", "", "", AP_XMLP_RPT_AET.PROCESS_INSTANCE);
+Else
+   If %OutDestType = 3 Then
+      &oRptDefn.PrintOutput(%FilePath);
+   End-If;
+End-If;
+###############################################
+Voucher table-->>Business unit field peoplecode:
+Component string &With_Authority, &With_NobasisAmt;
+Local boolean &WthdPosted, &WthdSchedExists, &PymntSchedPaid, &SchedPaid;
+Local boolean &DeletedSchedExists, &NewlyAddedSchedExists, &AmountChanged, &WthdAmtChanged, &RemitVndChanged;
+Local string &SetID, &ALTERNATE_NAME;
+
+Function ValXref(&XrefRS2 As Rowset, &PymntType, &PymntCnt, &OrigPymntCnt, &PostStatusWthd, &Action);
+   
+   rem &XrefRs = GetLevel0()(1).GetRowset(Scroll.PYMNT_VCHR_XREF);
+   
+   For &k = &XrefRS2.ActiveRowCount To 1 Step - 1
+      &XrefRw2 = &XrefRS2.GetRow(&k);
+      &Xref2 = &XrefRS2.GetRow(&k).GetRecord(Record.PYMNT_VCHR_XREF);
+      If &PymntType = "W" And
+            ((&Xref2.PYMNT_TYPE.value = "R" And
+               &Xref2.PYMNT_CNT.Value = &OrigPymntCnt And
+               (&Xref2.PYMNT_SELCT_STATUS.Value = "P")) Or
+               &Xref2.POST_STATUS_WTHD.Value = "P") Then
+         If &Action = "U" Then
+            Error MsgGet(7400, 81, "MESSAGE NOT FOUND - Cannot change withhold payment schedule (%1) when its original payment schedule has been paid or the withholding data has been posted", &PymntCnt)
+         Else
+            Error MsgGet(7400, 75, "MESSAGE NOT FOUND - Cannot delete withhold payment schedule when its original payment schedule has been paid or the withholding data has been posted", &PymntCnt)
+         End-If;
+      End-If;
+      
+      If &PymntType = "R" And
+            ((&Xref2.PYMNT_TYPE.value = "W" And
+               &Xref2.ORIG_PYMNT_CNT.Value = &PymntCnt And
+               &Xref2.PYMNT_SELCT_STATUS.Value <> "X") Or
+               &PostStatusWthd = "P") Then
+         If &Action = "U" Then
+            Error MsgGet(7400, 82, "MESSAGE NOT FOUND - Cannot change regular payment schedule (%1) when the related withholding payment schedule exists", &PymntCnt)
+         Else
+            Error MsgGet(7400, 76, "MESSAGE NOT FOUND - Cannot delete regular payment schedule when the related withholding payment schedule exists", &PymntCnt)
+         End-If;
+      End-If;
+   End-For;
+   
+End-Function;
+
+
+Function ValXrefChanges(&WthdApplFlg3, &NeedToDeleteWthdData3);
+   
+   If (&WthdPosted Or
+         &WhtdSchedExists Or
+         &SchedPaid) Then
+      
+      If &NewlyAddedSchedExists Then
+         Error MsgGet(7400, 73, "MESSAGE NOT FOUND - Changing payment schedules of this wihholding voucher is not allowed.  The withholding data has been posted, paid payment schedules exist, or withholding schedule still exists")
+      End-If;
+   Else
+      
+      If (&DeletedSchedExists Or
+            &NewlyAddedSchedExists Or
+            &AmountChanged) And
+            VOUCHER.POST_STATUS_AP = "U" And
+            &WthdApplFlg3 = "V" Then
+         &NeedToDeleteWthdData3 = True;
+         
+      End-If;
+      
+      If (&DeletedSchedExists Or
+            &NewlyAddedSchedExists Or
+            &AmountChanged) And
+            VOUCHER.POST_STATUS_AP = "P" And
+            &WthdApplFlg3 = "V" Then
+         Error MsgGet(7400, 83, "MESSAGE NOT FOUND - Changing payment schedules of this wihholding voucher is not allowed.  The voucher has been posted and withholding data has been created.")
+      End-If;
+      
+   End-If;
+   
+End-Function;
+
+Function ExecuteXrefChanges(&XrefRs As Rowset, &WthdApplFlg As string, &NeedToDeleteWthdData2 As boolean);
+   
+   &WthdPosted = False;
+   &WhtdSchedExists = False;
+   &SchedPaid = False;
+   &AmountChanged = False;
+   &DeletedSchedExists = False;
+   &NewlyAddedSchedExists = False;
+   &WthdAmtChanged = False;
+   &DeletedWthdSchedExists = False;
+   &RemitVndChanged = False;
+   
+   For &j = 1 To &XrefRs.RowCount
+      &XrefRow = &XrefRs(&j);
+      &Xref = &XrefRs(&j).GetRecord(Record.PYMNT_VCHR_XREF);
+      
+      If &Xref.POST_STATUS_WTHD.value = "P" Or
+            &Xref.POST_STATUS_WTHD.value = "X" Then
+         &WthdPosted = True;
+      End-If;
+      If &Xref.PYMNT_TYPE.value = "W" And
+            ( Not &Xref.IsDeleted) And
+            &Xref.PYMNT_SELCT_STATUS.value <> "X" Then
+         &WhtdSchedExists = True;
+      End-If;
+      If &Xref.PYMNT_SELCT_STATUS.value = "P" Then
+         &SchedPaid = True;
+      End-If;
+      
+      If &Xref.IsDeleted And
+            &Xref.PYMNT_TYPE.Value = "R" Then
+         &DeletedSchedExists = True;
+      End-If;
+      
+      If &Xref.IsDeleted And
+            &Xref.PYMNT_TYPE.Value = "W" Then
+         &DeletedWthdSchedExists = True;
+      End-If;
+      
+      If &XrefRow.IsNew And
+            &Xref.PYMNT_TYPE.Value = "R" Then
+         &NewlyAddedSchedExists = True;
+      End-If;
+      
+      If &Xref.PYMNT_GROSS_AMT.IsChanged Or
+            &Xref.DSCNT_PAY_AMT.IsChanged Then
+         &AmountChanged = True;
+         If &WthdApplFlg = "P" Then
+            &Update = "U";
+            ValXref(&XrefRs, &Xref.PYMNT_TYPE.Value, &Xref.PYMNT_CNT.Value, &Xref.ORIG_PYMNT_CNT.Value, &Xref.Post_Status_Wthd.Value, &Update);
+         End-If;
+      End-If;
+      
+      If (&Xref.REMIT_SETID.Ischanged Or
+            &Xref.REMIT_VENDOR.IsChanged) Then
+         &RemitVndChanged = True;
+      End-If;
+   End-For;
+   /* When No Withholding Schedule Created */
+   If VOUCHER.POST_STATUS_AP = "P" And
+         &WthdApplFlg = "V" And
+         &With_NobasisAmt = "Y" Then
+      
+      If &AmountChanged And
+            &With_Authority = "Y" Then
+         &AmountChanged = True;
+      End-If;
+      
+      If &AmountChanged And
+            &With_Authority = "N" Then
+         &AmountChanged = False;
+      End-If;
+      
+      If &RemitVndChanged And
+            &With_Authority = "Y" Then
+         &AmountChanged = True;
+      End-If;
+      
+      If &RemitVndChanged And
+            &With_Authority = "N" Then
+         &AmountChanged = False;
+      End-If;
+      
+      If &DeletedSchedExists Then
+         &DeletedSchedExists = False;
+      End-If;
+   End-If;
+   
+   ValXrefChanges(&WthdApplFlg, &NeedToDeleteWthdData2);
+   
+End-Function;
+
+
+Function DeleteWthdData(&XrefRs3 As Rowset, &WthdApplFlg2 As string);
+   
+   If &WthdApplFlg2 = "P" Then
+      For &n = 1 To &XrefRs3.RowCount
+         &XrefRow3 = &XrefRs3.GetRow(&n);
+         &Xref3 = &XrefRs3.GetRow(&n).GetRecord(Record.PYMNT_VCHR_XREF);
+         
+         If &Xref3.IsDeleted And
+               &Xref3.PYMNT_TYPE.value = "W" And
+               &Xref3.PYMNT_SELCT_STATUS.value = "N" And
+               %Mode = "U" Then
+            SQLExec("Delete from PS_PYMNT_VCHR_WTHD where Business_Unit = :1 and Voucher_Id = :2 and Pymnt_Cnt = :3", &Xref3.Business_Unit.value, &Xref3.Voucher_id.Value, &Xref3.ORIG_Pymnt_cnt.value);
+            
+            SQLExec("Delete from ps_wthd_period_log where business_unit = :1 and voucher_id = :2", &Xref3.Business_Unit.value, &Xref3.Voucher_id.Value);
+            
+         End-If;
+         
+         If &Xref3.IsDeleted And
+               &Xref3.ISCHANGED And
+               &Xref3.PYMNT_TYPE.value = "R" And
+               &Xref3.PYMNT_SELCT_STATUS.value = "N" And
+               %Mode = "U" Then
+            SQLExec("Delete from PS_PYMNT_VCHR_WTHD where Business_Unit = :1 and Voucher_Id = :2 and Pymnt_Cnt = :3", &Xref3.Business_Unit.value, &Xref3.Voucher_id.Value, &Xref3.Pymnt_cnt.value);
+         End-If;
+         
+         
+         If &Xref3.PYMNT_GROSS_AMT.IsChanged And
+               &Xref3.PYMNT_TYPE.value = "R" And
+               &Xref3.PYMNT_SELCT_STATUS.value = "N" And
+               %Mode = "U" Then
+            SQLExec("Delete from PS_PYMNT_VCHR_WTHD where Business_Unit = :1 and Voucher_Id = :2 and Pymnt_Cnt = :3", &Xref3.Business_Unit.value, &Xref3.Voucher_id.Value, &Xref3.Pymnt_cnt.value);
+            
+            SQLExec("Delete from ps_wthd_period_log where business_unit = :1 and voucher_id = :2 and pymnt_cnt = :3", &Xref3.Business_Unit.value, &Xref3.Voucher_id.Value, &Xref3.Pymnt_cnt.value);
+            
+         End-If;
+         
+      End-For;
+   End-If;
+End-Function;
+
+Function GetVendorAltName Returns string;
+   &SetID = GetSetId("BUSINESS_UNIT", VOUCHER.BUSINESS_UNIT, Record.VENDOR, "");
+   SQLExec("SELECT A.NAME1 FROM PS_VENDOR_ADDR A WHERE A.SETID = :1 AND A.VENDOR_ID = :2 AND A.ADDRESS_SEQ_NUM = :3 AND EFFDT = (SELECT MAX(B.EFFDT) FROM PS_VENDOR_ADDR B WHERE B.EFFDT <= %currentdatein AND A.SETID = B.SETID AND A.VENDOR_ID = B.VENDOR_ID AND A.ADDRESS_SEQ_NUM = B.ADDRESS_SEQ_NUM)", &SetID, VOUCHER.VENDOR_ID, VOUCHER.ADDRESS_SEQ_NUM, &ALTERNATE_NAME);
+   Return &ALTERNATE_NAME;
+End-Function;
+
